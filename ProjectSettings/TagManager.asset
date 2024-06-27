@@ -3,17 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fatty
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Entity
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - PlayerDetector
+  - Spell
   - 
   - 
   - 
@@ -40,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Spell
+    uniqueID: 3016868449
+    locked: 0
+  - name: CastInterface
+    uniqueID: 626554025
+    locked: 0
+  - name: Popups
+    uniqueID: 1685389333
+    locked: 0
+  - name: UI
+    uniqueID: 1384966311
     locked: 0
