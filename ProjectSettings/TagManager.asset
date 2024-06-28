@@ -15,8 +15,8 @@ TagManager:
   - Player
   - PlayerDetector
   - Spell
-  - 
-  - 
+  - Environment
+  - Item
   - 
   - 
   - 
@@ -39,14 +39,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Item
+    uniqueID: 626554025
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Spell
+  - name: 
     uniqueID: 3016868449
     locked: 0
-  - name: CastInterface
-    uniqueID: 626554025
+  - name: Environment
+    uniqueID: 2062822973
     locked: 0
   - name: Popups
     uniqueID: 1685389333
