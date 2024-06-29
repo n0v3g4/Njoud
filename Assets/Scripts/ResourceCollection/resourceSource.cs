@@ -25,7 +25,7 @@ public class resourceSource : MonoBehaviour
         
     }
 
-    public void setId(string name)
+    public void setName(string name)
     {
         resourceName = name;
     }

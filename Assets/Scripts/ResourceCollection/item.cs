@@ -9,7 +9,7 @@ public class item : MonoBehaviour
 
     private int collectorTeam = 0; //the team which can collect this
     private float spread = 1f;
-    private string itemName = "wood";
+    public string itemName = "wood";
     private int itemCount = 1;
 
     // Start is called before the first frame update

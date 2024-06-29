@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3114826658600866179}
   - component: {fileID: 3386251419474502567}
   - component: {fileID: 9147761102387465685}
-  - component: {fileID: 473825185090627621}
+  - component: {fileID: -3554532656620256774}
   - component: {fileID: 6522586677925353835}
   m_Layer: 9
   m_Name: CollectionPrefab
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2062822973
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -412945639, guid: bdd33f5c6887b6d4f9c9b0f168d9c557, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -114,8 +114,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &473825185090627621
-CircleCollider2D:
+--- !u!70 &-3554532656620256774
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,9 +146,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.25}
-  serializedVersion: 2
-  m_Radius: 0.1
+  m_Offset: {x: 0, y: -0.26}
+  m_Size: {x: 0.28, y: 0.2}
+  m_Direction: 0
 --- !u!114 &6522586677925353835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,5 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fbbbfe7ebe6b14ab941d5cbbbb0610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceId: 0
+  collectorTeam: 0
+  resourceName: wood
   resourcePrefab: {fileID: 4453245070439099580, guid: 9440aa8d4fee8d749b8a0ce0eb27f0eb, type: 3}
