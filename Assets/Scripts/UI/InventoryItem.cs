@@ -7,9 +7,17 @@ using UnityEngine.EventSystems;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    //store the Slot the Item returns to when dropped
     public Image image;
-    public Transform parentAfterDrag;
+
+    [HideInInspector] public itemData item;
+    //store the Slot the Item returns to when dropped
+    [HideInInspector] public Transform parentAfterDrag;
+
+    public void InitialiseItem(itemData newItem)
+    {
+        item = newItem;
+        image.sprite = newItem.image;
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {

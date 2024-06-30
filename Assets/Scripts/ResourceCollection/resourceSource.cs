@@ -1,4 +1,4 @@
-using System;
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 //using System.Diagnostics;
@@ -6,35 +6,20 @@ using UnityEngine;
 
 public class resourceSource : MonoBehaviour
 {
-
-    public int collectorTeam = 0; //the team of the entity that can collect this
-    public string resourceName = "wood";
+    public int collectorTeam = 0; //the team allowed to collect resources
     private float dropSpeed = 1f; //cooldown between drops
     private bool dropCooldown = false;
-    [SerializeField] private Transform resourcePrefab;
+    private float spread = 2f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void setName(string name)
-    {
-        resourceName = name;
-    }
+    public itemData item; //the item that is dropped
+    public GameObject itemDropPrefab;
 
     private void drop()
     {
         //create an item drop
-        Transform resourceDrop = Instantiate(resourcePrefab, transform.position, Quaternion.identity);
-        resourceDrop.GetComponent<item>().Setup(resourceName);
+        Vector3 spawnLocation = transform.position + new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread), 0f);
+        GameObject newItemGo = Instantiate(itemDropPrefab, spawnLocation, Quaternion.identity);
+        newItemGo.GetComponent<ItemDrop>().InitialiseItem(item);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

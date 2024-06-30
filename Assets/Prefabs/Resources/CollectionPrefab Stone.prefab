@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5449262466099867720
+--- !u!1001 &3022132714580420212
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,15 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3554532656620256774, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_Size.x
-      value: 0.67
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: -3554532656620256774, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_Size.y
-      value: 0.29
-      objectReference: {fileID: 0}
-    - target: {fileID: -3554532656620256774, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: -3554532656620256774, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_Offset.y
@@ -27,14 +23,6 @@ PrefabInstance:
     - target: {fileID: -3554532656620256774, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_Direction
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 473825185090627621, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
-      propertyPath: m_Radius
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 473825185090627621, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3114826658600866179, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_RootOrder
@@ -86,16 +74,12 @@ PrefabInstance:
       objectReference: {fileID: -1361731441, guid: f745c13928519ce438dc15d8f801c2a1, type: 3}
     - target: {fileID: 3755496327572442171, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_Name
-      value: CollectionPrefab Variant
+      value: CollectionPrefab Stone
       objectReference: {fileID: 0}
     - target: {fileID: 6522586677925353835, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
-      propertyPath: resourceName
-      value: stone
-      objectReference: {fileID: 0}
-    - target: {fileID: 6522586677925353835, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
-      propertyPath: resourcePrefab
+      propertyPath: item
       value: 
-      objectReference: {fileID: 6061670254998001287, guid: ba4c2cd59a42c104a929032460281627, type: 3}
+      objectReference: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

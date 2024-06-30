@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2062822973
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -412945639, guid: bdd33f5c6887b6d4f9c9b0f168d9c557, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -162,5 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectorTeam: 0
-  resourceName: wood
-  resourcePrefab: {fileID: 4453245070439099580, guid: 9440aa8d4fee8d749b8a0ce0eb27f0eb, type: 3}
+  item: {fileID: 11400000, guid: c3adc815b5291a04992d9ec01a5d67fd, type: 2}
+  itemDropPrefab: {fileID: 120215399521755132, guid: 7170b7832931cf24c9589048b49fc5f2, type: 3}
