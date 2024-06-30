@@ -45,9 +45,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: 
-    uniqueID: 3016868449
-    locked: 0
   - name: Environment
     uniqueID: 2062822973
     locked: 0
@@ -56,4 +53,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1384966311
+    locked: 0
+  - name: InventoryItem
+    uniqueID: 3016868449
     locked: 0

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class playerInventory : MonoBehaviour
 {
-    private int maxItems = 16;
+    [SerializeField] private Transform InventoryHolder;
+    private int maxItems = 24;
     //stores items as (name, count)
     public Dictionary<string, int> storedItems = new Dictionary<string, int>();
 
@@ -18,8 +19,10 @@ public class playerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //pressing "e" opens the inventory display
+        if (Input.GetKeyDown(KeyCode.E)) toggleInventory();
     }
+
 
     //called on item pickup
     public bool pickup(string name, int count)
@@ -32,8 +35,12 @@ public class playerInventory : MonoBehaviour
             else return false;
         }
         else this.storedItems[name] += count;
-        Debug.Log("added wood");
-        Debug.Log(this.storedItems[name]);
         return true;
+    }
+
+    private void toggleInventory()
+    {
+        if(InventoryHolder.gameObject.activeSelf) InventoryHolder.gameObject.SetActive(false);
+        else InventoryHolder.gameObject.SetActive(true);
     }
 }
