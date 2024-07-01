@@ -16,16 +16,19 @@ public class InventoryManager : MonoBehaviour
     public bool AddItem(itemData item, int itemCount)
     {
         //stack item if possible
-        for (int i = 0; i < inventorySlots.Length; i++)
+        if (item.stackable)
         {
-            InventorySlot slot = inventorySlots[i];
-            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            for (int i = 0; i < inventorySlots.Length; i++)
+            {
+                InventorySlot slot = inventorySlots[i];
+                InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 
-            if (itemInSlot != null && itemInSlot.item == item && itemInSlot.itemCount < maxStack)
-            { 
-                itemInSlot.itemCount += itemCount;
-                itemInSlot.RefreshCount();
-                return true;
+                if (itemInSlot != null && itemInSlot.item == item && itemInSlot.itemCount < maxStack)
+                {
+                    itemInSlot.itemCount += itemCount;
+                    itemInSlot.RefreshCount();
+                    return true;
+                }
             }
         }
         //find empty slot if possible
