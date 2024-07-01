@@ -11,7 +11,7 @@ public class itemData : ScriptableObject
     public ActionType actionType;
     public Vector2Int range = new Vector2Int(2, 2);
 
-    public bool stackable = true;
+    public bool stackable;
 
     public Sprite image;
 }

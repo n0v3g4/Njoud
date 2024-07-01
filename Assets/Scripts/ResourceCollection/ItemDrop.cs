@@ -10,6 +10,7 @@ public class ItemDrop : MonoBehaviour
     private bool onDelay = false;
 
     [HideInInspector] public itemData item;
+    [HideInInspector] public int count = 1;
 
     public void InitialiseItem(itemData newItem)
     {
@@ -29,7 +30,7 @@ public class ItemDrop : MonoBehaviour
             if (Collider.entityStats.TryGetValue("team", out float value)) colliderTeam = value;
             if (colliderTeam == item.pickupTeam)
             {
-                bool tryAdding = ColliderInventory.AddItem(item);
+                bool tryAdding = ColliderInventory.AddItem(item, count);
                 if (tryAdding) Destroy(gameObject);
                 onDelay = true;
                 StartCoroutine(pickupDelayReset());
