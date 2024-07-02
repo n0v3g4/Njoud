@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71c703379639a44b8146597a218f82a, type: 3}
   m_Name: stone
   m_EditorClassIdentifier: 
-  type: 1
+  pickupTeam: 0
+  maxStack: 3
+  type: 2
   actionType: 0
   range: {x: 2, y: 2}
-  stackable: 1
   image: {fileID: 21300000, guid: 2c1cc7c91ffc9ce4e91c67b7ba88f056, type: 3}

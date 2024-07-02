@@ -8,10 +8,12 @@ public class resourceSource : MonoBehaviour
 {
     public int collectorTeam = 0; //the team allowed to collect resources
     private float dropSpeed = 1f; //cooldown between drops
+    private float pickupDelay = .5f;
     private bool dropCooldown = false;
     private float spread = 2f;
 
     public itemData item; //the item that is dropped
+    public int count = 1;
     public GameObject itemDropPrefab;
 
     private void drop()
@@ -19,7 +21,7 @@ public class resourceSource : MonoBehaviour
         //create an item drop
         Vector3 spawnLocation = transform.position + new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread), 0f);
         GameObject newItemGo = Instantiate(itemDropPrefab, spawnLocation, Quaternion.identity);
-        newItemGo.GetComponent<ItemDrop>().InitialiseItem(item);
+        newItemGo.GetComponent<ItemDrop>().InitialiseItem(item, count, pickupDelay);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

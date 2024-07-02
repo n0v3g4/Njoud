@@ -7,17 +7,17 @@ using UnityEngine;
 public class itemData : ScriptableObject
 {
     public int pickupTeam = 0;
+    public int maxStack = 1;
     public ItemType type;
     public ActionType actionType;
     public Vector2Int range = new Vector2Int(2, 2);
-
-    public bool stackable;
 
     public Sprite image;
 }
 
 public enum ItemType
 {
+    None,
     Tool,
     Resource
 }

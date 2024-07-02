@@ -12,22 +12,22 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public TextMeshProUGUI countText;
 
     [HideInInspector] public itemData item;
-    [HideInInspector] public int itemCount = 1;
+    [HideInInspector] public int count;
     //store the Slot the Item returns to when dropped
     [HideInInspector] public Transform parentAfterDrag;
 
-    public void InitialiseItem(itemData newItem, int count)
+    public void InitialiseItem(itemData newItem, int Tcount)
     {
         item = newItem;
-        itemCount = count;
+        count = Tcount;
         image.sprite = newItem.image;
         RefreshCount();
     }
 
     public void RefreshCount()
     {
-        countText.SetText(itemCount.ToString());
-        bool textActive = itemCount > 1;
+        countText.SetText(count.ToString());
+        bool textActive = count > 1;
         countText.gameObject.SetActive(textActive);
     }
 

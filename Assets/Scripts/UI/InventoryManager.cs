@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public int maxStack = 4;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public Transform inventoryHolder;
@@ -13,21 +13,24 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) toggleInventory();
     }
 
-    public bool AddItem(itemData item, int itemCount)
+    public int AddItem(itemData item, int count)
     {
+        //nothing to pick up
+        if (count <= 0) return 0;
         //stack item if possible
-        if (item.stackable)
+        if (item.maxStack > 1)
         {
             for (int i = 0; i < inventorySlots.Length; i++)
             {
                 InventorySlot slot = inventorySlots[i];
                 InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 
-                if (itemInSlot != null && itemInSlot.item == item && itemInSlot.itemCount < maxStack)
+                if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < itemInSlot.item.maxStack)
                 {
-                    itemInSlot.itemCount += itemCount;
+                    int emptySpace = itemInSlot.item.maxStack - itemInSlot.count;
+                    itemInSlot.count += Math.Min(count, emptySpace);
                     itemInSlot.RefreshCount();
-                    return true;
+                    return AddItem(item, Math.Max(count - emptySpace, 0));
                 }
             }
         }
@@ -39,17 +42,17 @@ public class InventoryManager : MonoBehaviour
 
             if (itemInSlot == null)
             {
-                SpawnNewItem(item, slot, itemCount);
-                return true;
+                SpawnNewItem(item, slot, Math.Min(count, item.maxStack));
+                return AddItem(item, Math.Max(count - item.maxStack, 0));
             }
         }
-        return false;
+        return count;
     }
 
-    public void SpawnNewItem(itemData item, InventorySlot slot, int itemCount)
+    public void SpawnNewItem(itemData item, InventorySlot slot, int count)
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
-        newItemGo.GetComponent<InventoryItem>().InitialiseItem(item, itemCount);
+        newItemGo.GetComponent<InventoryItem>().InitialiseItem(item, count);
     }
 
     private void toggleInventory()

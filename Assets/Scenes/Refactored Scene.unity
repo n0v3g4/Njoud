@@ -4372,6 +4372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollectionPrefab Stone
       objectReference: {fileID: 0}
+    - target: {fileID: 8319318081390821151, guid: 7b4c2a09194818b419a46309b0edf49a, type: 3}
+      propertyPath: count
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
