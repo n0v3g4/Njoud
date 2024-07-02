@@ -41,8 +41,8 @@ public class ItemDrop : MonoBehaviour
             if (Collider.entityStats.TryGetValue("team", out float value)) colliderTeam = value;
             if (colliderTeam == item.pickupTeam)
             {
-                int tryAdding = ColliderInventory.AddItem(item, count);
-                if (tryAdding <= 0) Destroy(gameObject);
+                count = ColliderInventory.AddItem(item, count);
+                if (count <= 0) Destroy(gameObject);
                 else RefreshCount();
                 onDelay = true;
                 StartCoroutine(pickupDelayReset(pickupAttemptDelay));

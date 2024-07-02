@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System;
 
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
@@ -11,16 +10,21 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Image image;
     public TextMeshProUGUI countText;
 
+    private InventoryManager inventoryManager;
+
     [HideInInspector] public itemData item;
     [HideInInspector] public int count;
     //store the Slot the Item returns to when dropped
     [HideInInspector] public Transform parentAfterDrag;
+    [HideInInspector] public bool originBlocked = false;
 
-    public void InitialiseItem(itemData newItem, int Tcount)
+    public void InitialiseItem(itemData newItem, int Tcount, InventoryManager TinventoryManager)
     {
         item = newItem;
         count = Tcount;
+        inventoryManager = TinventoryManager;
         image.sprite = newItem.image;
+        countText.raycastTarget = false;
         RefreshCount();
     }
 
@@ -40,6 +44,17 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
+        if (Input.GetKey(KeyCode.LeftShift) && count>1)
+        {
+            //split the stack
+            int split = Mathf.FloorToInt(count / 2);
+            int remainder = count - split;
+            count = split;
+            RefreshCount();
+            //create a new InventoryItem for the remainder
+            inventoryManager.SpawnNewItem(item, parentAfterDrag.GetComponent<InventorySlot>(), remainder);
+            originBlocked = true;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -49,7 +64,16 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentAfterDrag);
+        if (parentAfterDrag.childCount != 0)
+        {
+            //this happens only when splitting a Stack and not depositing the split fully
+            InventoryItem occupyingItem = parentAfterDrag.GetChild(0).gameObject.GetComponent<InventoryItem>();
+            occupyingItem.count += count;
+            occupyingItem.RefreshCount();
+            Destroy(gameObject);
+        }
+        else transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
+        originBlocked = false;
     }
 }

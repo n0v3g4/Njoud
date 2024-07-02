@@ -52,7 +52,7 @@ public class InventoryManager : MonoBehaviour
     public void SpawnNewItem(itemData item, InventorySlot slot, int count)
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
-        newItemGo.GetComponent<InventoryItem>().InitialiseItem(item, count);
+        newItemGo.GetComponent<InventoryItem>().InitialiseItem(item, count, this);
     }
 
     private void toggleInventory()
