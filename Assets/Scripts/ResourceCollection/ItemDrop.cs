@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemDrop : MonoBehaviour
 {
     public SpriteRenderer image;
+    public TextMeshPro countText;
 
     private float pickupAttemptDelay = 1f;
     private bool onDelay = false;
@@ -18,8 +20,16 @@ public class ItemDrop : MonoBehaviour
         count = Tcount;
         image.sprite = newItem.image;
         onDelay = true;
+        RefreshCount();
         StartCoroutine(pickupDelayReset(pickupDelay));
     }
+    public void RefreshCount()
+    {
+        countText.SetText(count.ToString());
+        bool textActive = count > 1;
+        countText.gameObject.SetActive(textActive);
+    }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -33,6 +43,7 @@ public class ItemDrop : MonoBehaviour
             {
                 int tryAdding = ColliderInventory.AddItem(item, count);
                 if (tryAdding <= 0) Destroy(gameObject);
+                else RefreshCount();
                 onDelay = true;
                 StartCoroutine(pickupDelayReset(pickupAttemptDelay));
             }
