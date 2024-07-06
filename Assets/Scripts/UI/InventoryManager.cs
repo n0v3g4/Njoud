@@ -35,13 +35,6 @@ public class InventoryManager : MonoBehaviour
         else if (mouseScroll > 0) ChangeSelectedSlot(mod((SelectedSlot + 1), 8));
     }
 
-    void ChangeSelectedSlot(int newSlot)
-    {
-        if(SelectedSlot >= 0) inventorySlots[SelectedSlot].Deselect();
-        inventorySlots[newSlot].Select();
-        SelectedSlot = newSlot;
-    }
-
     public int AddItem(itemData item, int count)
     {
         //nothing to pick up
@@ -84,9 +77,26 @@ public class InventoryManager : MonoBehaviour
         newItemGo.GetComponent<InventoryItem>().InitialiseItem(item, count, this);
     }
 
+    public itemData GetSelectedItem()
+    {
+        InventorySlot slot = inventorySlots[SelectedSlot];
+        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        if (itemInSlot != null) return itemInSlot.item;
+        return null;
+    }
+
+
+
     private void toggleInventory()
     {
         if (inventoryHolder.gameObject.activeSelf) inventoryHolder.gameObject.SetActive(false);
         else inventoryHolder.gameObject.SetActive(true);
+    }
+
+    void ChangeSelectedSlot(int newSlot)
+    {
+        if (SelectedSlot >= 0) inventorySlots[SelectedSlot].Deselect();
+        inventorySlots[newSlot].Select();
+        SelectedSlot = newSlot;
     }
 }
