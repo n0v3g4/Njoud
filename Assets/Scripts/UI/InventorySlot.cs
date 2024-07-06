@@ -8,22 +8,17 @@ using System;
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
     public Image image;
-    public Sprite inventorySlot;
-    public Sprite selectedInventorySlot; 
+
+    private Vector3 normalScale = new Vector3(1, 1, 1);
+    private Vector3 selectedScaleScale = new Vector3(1.125f, 1.125f, 1);
 
     private void Awake()
     {
         Deselect();
     }
 
-    public void Select()
-    {
-        image.sprite = selectedInventorySlot;
-    }
-    public void Deselect()
-    {
-        image.sprite = inventorySlot;
-    }
+    public void Select() { image.transform.localScale = selectedScaleScale; }
+    public void Deselect() { image.transform.localScale = normalScale; }
 
     //if an Item is dropped at a slot, set the new Parent to that slot. If the slot is full swap the items
     public void OnDrop(PointerEventData eventData)
