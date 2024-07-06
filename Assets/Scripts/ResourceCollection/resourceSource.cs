@@ -30,7 +30,7 @@ public class resourceSource : MonoBehaviour
         entity Collider = collision.GetComponent<entity>();
         InventoryManager inventoryManager = collision.GetComponent<InventoryManager>();
         //ColliderItem and ColliderActinos are potentally null, which results in an ActionType of None
-        itemData ColliderItem = inventoryManager == null ? null : inventoryManager.GetSelectedItem();
+        itemData ColliderItem = inventoryManager == null ? null : inventoryManager.GetSelectedItem(false);
         ActionType ColliderAction = (actionType == ActionType.None || ColliderItem == null) ? ActionType.None : ColliderItem.actionType;
         if (Collider != null && !dropCooldown)
         {
