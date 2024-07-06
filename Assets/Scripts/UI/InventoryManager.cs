@@ -8,9 +8,38 @@ public class InventoryManager : MonoBehaviour
     public GameObject inventoryItemPrefab;
     public Transform inventoryHolder;
 
+    int SelectedSlot = -1;
+    private float mouseScroll = 0;
+
+    private void Start()
+    {
+        ChangeSelectedSlot(0);
+    }
+
+    //definition of % function that works for negative numbers
+    int mod(int x, int m) { return (x % m + m) % m; }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) toggleInventory();
+        if(Input.inputString != null)
+        {
+            if (Input.GetKeyDown(KeyCode.E)) toggleInventory();
+            bool isNumber = int.TryParse(Input.inputString, out int number);
+            if (isNumber && number > 0 && number < 9)
+            {
+                ChangeSelectedSlot(number - 1);
+            }
+        }
+        mouseScroll = (Input.GetAxis("Mouse ScrollWheel"));
+        if (mouseScroll < 0) ChangeSelectedSlot(mod((SelectedSlot - 1), 8));
+        else if (mouseScroll > 0) ChangeSelectedSlot(mod((SelectedSlot + 1), 8));
+    }
+
+    void ChangeSelectedSlot(int newSlot)
+    {
+        if(SelectedSlot >= 0) inventorySlots[SelectedSlot].Deselect();
+        inventorySlots[newSlot].Select();
+        SelectedSlot = newSlot;
     }
 
     public int AddItem(itemData item, int count)

@@ -7,6 +7,24 @@ using System;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
+    public Image image;
+    public Sprite inventorySlot;
+    public Sprite selectedInventorySlot; 
+
+    private void Awake()
+    {
+        Deselect();
+    }
+
+    public void Select()
+    {
+        image.sprite = selectedInventorySlot;
+    }
+    public void Deselect()
+    {
+        image.sprite = inventorySlot;
+    }
+
     //if an Item is dropped at a slot, set the new Parent to that slot. If the slot is full swap the items
     public void OnDrop(PointerEventData eventData)
     {

@@ -114,3 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a6c550de906d34985d64efd05480e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 3407924573628507140}
+  inventorySlot: {fileID: 21300000, guid: bba02c880a7877742bc62f6790f42c28, type: 3}
+  selectedInventorySlot: {fileID: 21300000, guid: 59bbc2ac115cb9047b92f14858ab623e, type: 3}
