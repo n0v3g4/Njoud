@@ -5,8 +5,8 @@ using UnityEngine;
 public class MonsterAttractor : MonoBehaviour
 {
     public int spawnDelay;
-    private bool spawnOnDelay = false;
     private int spawnDistance = 5;
+    private bool spawnOnDelay = false;
     public GameObject[] spawnerPrefabs;
 
     // Update is called once per frame
@@ -23,8 +23,8 @@ public class MonsterAttractor : MonoBehaviour
     private void spawnSpawner(GameObject spawnerPrefab)
     {
         //create a monster spawner
-        Vector3 spawnLocation = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0f);
-        spawnLocation = transform.position + (spawnLocation.normalized * spawnDistance);
+        Vector3 spawnLocation = (Random.insideUnitCircle.normalized * spawnDistance);
+        spawnLocation += transform.position;
         GameObject newItemGo = Instantiate(spawnerPrefab, spawnLocation, Quaternion.identity);
         newItemGo.GetComponent<EnemySpawner>().InitialiseSpawner();
     }

@@ -6,13 +6,14 @@ public class EnemySpawner : MonoBehaviour
 {
     public int spawnDelay;
     public int spawns;
-    private bool spawnOnDelay = false;
+    public Animator animator;
+    private bool spawnOnDelay = true;
     private int spawnDistance = 1;
     public GameObject[] enemyPrefabs;
 
     public void InitialiseSpawner()
     {
-
+        StartCoroutine(spawnCooldownReset());
     }
 
     void Update()
@@ -28,11 +29,12 @@ public class EnemySpawner : MonoBehaviour
     private void spawnEnemy(GameObject enemyPrefab)
     {
         //create a monster
-        Vector3 spawnLocation = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0f);
-        spawnLocation = transform.position + (spawnLocation.normalized * spawnDistance);
+        Vector3 spawnLocation = (Random.insideUnitCircle.normalized * spawnDistance);
+        spawnLocation += transform.position;
         GameObject newItemGo = Instantiate(enemyPrefab, spawnLocation, Quaternion.identity);
         spawns--;
-        if (spawns <= 0) Destroy(gameObject);
+        //this also destroys the spawner once the animation is done
+        if (spawns <= 0) animator.SetTrigger("Die");
     }
 
     private IEnumerator spawnCooldownReset()
