@@ -120,9 +120,29 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f1363d72a5283a54a9144da681eb9ade, type: 3}
+    - target: {fileID: 3395596340694924099, guid: af763ff6b43f4ed4f8da246b6a016ded, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5320753797749839047, guid: af763ff6b43f4ed4f8da246b6a016ded, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5613313224400425761, guid: af763ff6b43f4ed4f8da246b6a016ded, type: 3}
       propertyPath: m_Name
       value: EnemyPrefab Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613313224400425761, guid: af763ff6b43f4ed4f8da246b6a016ded, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099302140972763715, guid: af763ff6b43f4ed4f8da246b6a016ded, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953297438017557717, guid: af763ff6b43f4ed4f8da246b6a016ded, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7982452437006032105, guid: af763ff6b43f4ed4f8da246b6a016ded, type: 3}
       propertyPath: m_RootOrder
@@ -175,6 +195,10 @@ PrefabInstance:
     - target: {fileID: 8158604311203071400, guid: af763ff6b43f4ed4f8da246b6a016ded, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457282031794071307, guid: af763ff6b43f4ed4f8da246b6a016ded, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
