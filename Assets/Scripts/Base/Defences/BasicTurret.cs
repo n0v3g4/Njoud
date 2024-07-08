@@ -2,16 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using static UnityEngine.GraphicsBuffer;
 
 public class BasicTurret : MonoBehaviour
 {
     public bool rotateTurret;
     private float range = 5f;
     private float rotationSpeed = 200f;
-    [SerializeField] private LayerMask enemyMask;
+    private float fireDelay = 1f;
+    private bool fireOnDelay = false;
+    private int targetTeam = -1;
+    private Dictionary<string, float> damageStats = new Dictionary<string, float>();
+    public elementArray damage = new elementArray(new float[] { 10, 10, 10, 10 });
+    private int bulletLifeTime = 5;
 
+    [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform bulletOrigin;
 
     private entity target;
+
+    private void Start()
+    {
+        damageStats["knockback"] = 25;
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,6 +35,7 @@ public class BasicTurret : MonoBehaviour
         {
             if (rotateTurret) rotateTowardsTarget();
             if (!checkTargetInRange()) target = null;
+            else if (!fireOnDelay) fire();
         }
     }
 
@@ -42,5 +57,20 @@ public class BasicTurret : MonoBehaviour
     }
 
     private bool checkTargetInRange() { return Vector2.Distance(target.transform.position, transform.position) <= range; }
+
+    private void fire()
+    {
+        Vector2 direction = (target.transform.position - transform.position).normalized;
+        GameObject bullet = Instantiate(bulletPrefab, bulletOrigin.position, Quaternion.identity);
+        bullet.GetComponent<Bullet>().initializeBullet(direction, bulletLifeTime, targetTeam, damage, damageStats);
+        fireOnDelay = true;
+        StartCoroutine(fireCooldownReset());
+    }
+
+    private IEnumerator fireCooldownReset()
+    {
+        yield return new WaitForSeconds(fireDelay);
+        fireOnDelay = false;
+    }
 
 }

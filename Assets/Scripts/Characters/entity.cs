@@ -55,7 +55,7 @@ public class entity : MonoBehaviour
         Transform damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
         damagePopup.GetComponent<damagePopup>().Setup(trueDamage);
 
-        Debug.Log("took " + trueDamage + " damage");
+        //Debug.Log("took " + trueDamage + " damage");
 
         if (entityStats["hp"] <= 0) Die();
         //do special things here, not applied if dead
