@@ -1,7 +1,6 @@
-//using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-//using System.Diagnostics;
 using UnityEngine;
 
 public class resourceSource : MonoBehaviour
@@ -20,7 +19,7 @@ public class resourceSource : MonoBehaviour
     private void drop()
     {
         //create an item drop
-        Vector3 spawnLocation = transform.position + new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread), 0f);
+        Vector3 spawnLocation = transform.position + new Vector3(UnityEngine.Random.Range(-spread, spread), UnityEngine.Random.Range(-spread, spread), 0f);
         GameObject newItemGo = Instantiate(itemDropPrefab, spawnLocation, Quaternion.identity);
         newItemGo.GetComponent<ItemDrop>().InitialiseItem(item, count, pickupDelay);
     }
@@ -28,7 +27,9 @@ public class resourceSource : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         entity Collider = collision.GetComponent<entity>();
-        InventoryManager inventoryManager = collision.GetComponent<InventoryManager>();
+        InventoryManager inventoryManager;
+        try { inventoryManager = collision.GetComponent<playerStatsDefaults>().inventoryManager; }
+        catch (Exception _) { inventoryManager = null; }
         //ColliderItem and ColliderActinos are potentally null, which results in an ActionType of None
         itemData ColliderItem = inventoryManager == null ? null : inventoryManager.GetSelectedItem(false);
         ActionType ColliderAction = (actionType == ActionType.None || ColliderItem == null) ? ActionType.None : ColliderItem.actionType;

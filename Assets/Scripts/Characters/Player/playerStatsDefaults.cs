@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class playerStatsDefaults : MonoBehaviour
 {
+    //to pass item pickup data to the ui
+    public InventoryManager inventoryManager;
+
     private Dictionary<string, float> entityStats;
     private Dictionary<string, float> spellStats;
     private Dictionary<string, elementArray> entityElements;
