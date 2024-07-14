@@ -12,9 +12,9 @@ public class resourceSource : MonoBehaviour
     private bool dropCooldown = false;
     private float spread = 2f;
 
-    public itemData item; //the item that is dropped
-    public int count = 1;
-    public GameObject itemDropPrefab;
+    [SerializeField] private itemData item; //the item that is dropped
+    [SerializeField] private int count = 1;
+    [SerializeField] private GameObject itemDropPrefab;
 
     private void drop()
     {

@@ -3105,8 +3105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf09bbeb84ab704695f0039afad7f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryManager: {fileID: 0}
-  buildMenuManager: {fileID: 0}
+  inventoryHolder: {fileID: 2145011657}
+  buildMenuHolder: {fileID: 292451819}
 --- !u!114 &667790681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8566,6 +8566,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143b07a1fd3456e49bce1a5a86f59599, type: 3}
+--- !u!1 &1657099663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8238446409647621114, guid: ab02dc8e624417a42b28dfe2b030087e, type: 3}
+  m_PrefabInstance: {fileID: 8238446408878248910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1657099666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657099663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1bd3f8ce786cec46b6fed0c623441c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDropPrefab: {fileID: 120215399521755132, guid: 7170b7832931cf24c9589048b49fc5f2, type: 3}
+  playerPosition: {fileID: 888609858}
 --- !u!1001 &1700692108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11189,5 +11208,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8238446409647621114, guid: ab02dc8e624417a42b28dfe2b030087e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1657099666}
   m_SourcePrefab: {fileID: 100100000, guid: ab02dc8e624417a42b28dfe2b030087e, type: 3}
