@@ -8,7 +8,6 @@ public class EnemySpawner : MonoBehaviour
     public int spawns;
     public Animator animator;
     private bool spawnOnDelay = true;
-    private int spawnDistance = 1;
     public GameObject[] enemyPrefabs;
 
     public void InitialiseSpawner()
@@ -29,8 +28,7 @@ public class EnemySpawner : MonoBehaviour
     private void spawnEnemy(GameObject enemyPrefab)
     {
         //create a monster
-        Vector3 spawnLocation = (Random.insideUnitCircle.normalized * spawnDistance);
-        spawnLocation += transform.position;
+        Vector3 spawnLocation = transform.position;
         GameObject newItemGo = Instantiate(enemyPrefab, spawnLocation, Quaternion.identity);
         spawns--;
         //this also destroys the spawner once the animation is done

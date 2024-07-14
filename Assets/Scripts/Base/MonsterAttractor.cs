@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class MonsterAttractor : MonoBehaviour
 {
@@ -33,5 +32,13 @@ public class MonsterAttractor : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnDelay);
         spawnOnDelay = false;
+    }
+
+    //display range in editor
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, spawnDistance);
     }
 }

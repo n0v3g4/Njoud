@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class resourceSource : MonoBehaviour
@@ -10,7 +9,7 @@ public class resourceSource : MonoBehaviour
     private float dropSpeed = 1f; //cooldown between drops
     private float pickupDelay = .5f;
     private bool dropCooldown = false;
-    private float spread = 2f;
+    private float dropDistance = 1f;
 
     [SerializeField] private itemData item; //the item that is dropped
     [SerializeField] private int count = 1;
@@ -19,7 +18,8 @@ public class resourceSource : MonoBehaviour
     private void drop()
     {
         //create an item drop
-        Vector3 spawnLocation = transform.position + new Vector3(UnityEngine.Random.Range(-spread, spread), UnityEngine.Random.Range(-spread, spread), 0f);
+        Vector3 spawnLocation = (UnityEngine.Random.insideUnitCircle.normalized * dropDistance);
+        spawnLocation += transform.position;
         GameObject newItemGo = Instantiate(itemDropPrefab, spawnLocation, Quaternion.identity);
         newItemGo.GetComponent<ItemDrop>().InitialiseItem(item, count, pickupDelay);
     }
@@ -51,5 +51,12 @@ public class resourceSource : MonoBehaviour
     {
         yield return new WaitForSeconds(dropSpeed);
         dropCooldown = false;
+    }
+
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, dropDistance);
     }
 }
