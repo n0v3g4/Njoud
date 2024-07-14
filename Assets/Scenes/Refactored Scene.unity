@@ -3065,7 +3065,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1384966311
   m_SortingOrder: 0
@@ -3105,6 +3105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf09bbeb84ab704695f0039afad7f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 0}
+  buildMenuManager: {fileID: 0}
 --- !u!114 &667790681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3117,7 +3119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9793a0dbcab9343b1d503d17977e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildMenuHolder: {fileID: 292451819}
 --- !u!114 &667790682
 MonoBehaviour:
   m_ObjectHideFlags: 0

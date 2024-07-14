@@ -4,15 +4,53 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform inventoryHolder;
+    public Transform buildMenuHolder;
+
+    public Dictionary<MenuState, Transform> stateTransforms = new Dictionary<MenuState, Transform>();
+    private MenuState currentState = MenuState.None;
+
     void Start()
     {
-        
+        stateTransforms[MenuState.None] = null;
+        stateTransforms[MenuState.Inventory] = inventoryHolder;
+        stateTransforms[MenuState.BuildMenu] = buildMenuHolder;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.inputString != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Q)) changeMenuState(MenuState.BuildMenu);
+            if (Input.GetKeyDown(KeyCode.E)) changeMenuState(MenuState.Inventory);
+        }
     }
+
+    private void changeMenuState(MenuState targetState)
+    {
+        if(currentState == targetState)
+        {
+            toggleMenu(stateTransforms[targetState]);
+            currentState = MenuState.None;
+            return;
+        }
+        toggleMenu(stateTransforms[currentState]);
+        toggleMenu(stateTransforms[targetState]);
+        currentState = targetState;
+    }
+
+    private void toggleMenu(Transform menu)
+    {
+        if (!menu) return;
+        if (menu.gameObject.activeSelf) menu.gameObject.SetActive(false);
+        else menu.gameObject.SetActive(true);
+    }
+
+}
+
+public enum MenuState
+{
+    None,
+    BuildMenu,
+    Inventory
 }

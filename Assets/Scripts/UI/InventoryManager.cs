@@ -23,7 +23,6 @@ public class InventoryManager : MonoBehaviour
     {
         if(Input.inputString != null)
         {
-            if (Input.GetKeyDown(KeyCode.E)) toggleInventory();
             bool isNumber = int.TryParse(Input.inputString, out int number);
             if (isNumber && number > 0 && number < 9)
             {
@@ -91,14 +90,6 @@ public class InventoryManager : MonoBehaviour
             return item;
         }
         return null;
-    }
-
-
-
-    private void toggleInventory()
-    {
-        if (inventoryHolder.gameObject.activeSelf) inventoryHolder.gameObject.SetActive(false);
-        else inventoryHolder.gameObject.SetActive(true);
     }
 
     void ChangeSelectedSlot(int newSlot)
