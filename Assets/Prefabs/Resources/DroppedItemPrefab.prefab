@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8403641971866198851}
   - component: {fileID: 7813805105368108261}
   - component: {fileID: 1752388974805642190}
+  - component: {fileID: 5954388639836358638}
   m_Layer: 10
   m_Name: DroppedItemPrefab
   m_TagString: Untagged
@@ -166,6 +167,26 @@ MonoBehaviour:
   countText: {fileID: 3636409421876930094}
   item: {fileID: 0}
   count: 0
+--- !u!95 &5954388639836358638
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120215399521755132}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0245009329b1081478bf7f47b146333a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5684723671456452640
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 999
+  m_text: 9379
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: b3384bcebadfa21468d7dd4ff718b050, type: 2}
@@ -309,7 +330,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
