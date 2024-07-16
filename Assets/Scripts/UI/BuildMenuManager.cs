@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class BuildMenuManager : MonoBehaviour
 {
@@ -17,11 +16,5 @@ public class BuildMenuManager : MonoBehaviour
             newItemGo.transform.SetParent(buildingContainer);
             newItemGo.GetComponent<BuildSlot>().InitialiseBuildSlot(buildingDatas[i]);
         }
-    }
-
-    void Update()
-    {
-        //do nothing
-        return;
     }
 }
