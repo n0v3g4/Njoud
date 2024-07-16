@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38e9369aacf43b444a9f0ae059ae9adc, type: 3}
-  m_Name: Turret
+  m_Name: Crafter
   m_EditorClassIdentifier: 
   Costs:
-  - cost: 10
+  - cost: 5
     item: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
-  description: This simple turret kills all that moves
-  buildingPrefab: {fileID: 7180552451287519864, guid: af0390dbcc66faf4f82dea18bbcdcf52, type: 3}
+  - cost: 5
+    item: {fileID: 11400000, guid: c3adc815b5291a04992d9ec01a5d67fd, type: 2}
+  description: Used to create the most basic tools
+  buildingPrefab: {fileID: 6123876640289293364, guid: 5749f6d6cb421a049b7b80f3f7607d6a, type: 3}
