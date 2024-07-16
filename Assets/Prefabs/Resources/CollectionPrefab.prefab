@@ -162,5 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectorTeam: 0
+  actionType: 0
   item: {fileID: 11400000, guid: c3adc815b5291a04992d9ec01a5d67fd, type: 2}
+  count: 1
   itemDropPrefab: {fileID: 120215399521755132, guid: 7170b7832931cf24c9589048b49fc5f2, type: 3}

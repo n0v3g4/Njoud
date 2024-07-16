@@ -1,5 +1,4 @@
 using System;
-
 public class elementArray
 {
     //use this to make sure all element arrays have exactly n elements
