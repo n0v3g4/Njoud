@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,5 +10,10 @@ public class BuildCost : MonoBehaviour
     {
         cost.SetText(_cost.ToString());
         sprite.sprite = _sprite;
+    }
+
+    public void SetCostText(bool costMet)
+    {
+
     }
 }

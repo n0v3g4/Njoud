@@ -10,8 +10,9 @@ public class BuildSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject costPrefab;
     [SerializeField] private Transform costHolder;
-    [SerializeField] public Image image;
-    public void InitialiseBuildSlot(BuildingData buildingData)
+    [SerializeField] private Image image;
+    [SerializeField] private BuildMenuManager buildMenuManager;
+    public void InitialiseBuildSlot(BuildingData buildingData, List<BuildCost> buildCosts)
     {
         text.SetText(buildingData.description);
         image.sprite = buildingData.buildingPrefab.GetComponent<SpriteRenderer>().sprite;
@@ -20,6 +21,7 @@ public class BuildSlot : MonoBehaviour, IPointerClickHandler
             GameObject newItemGo = Instantiate(costPrefab);
             newItemGo.transform.SetParent(costHolder);
             newItemGo.GetComponent<BuildCost>().InitialiseBuildCost(buildingData.Costs[i].item.image, buildingData.Costs[i].cost);
+            buildCosts.Add(newItemGo.GetComponent<BuildCost>());
         }
     }
 

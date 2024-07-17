@@ -7,6 +7,7 @@ public class BuildMenuManager : MonoBehaviour
     [SerializeField] private Transform buildingContainer;
     [SerializeField] private BuildingData[] buildingDatas;
     [SerializeField] private GameObject buildingDataPrefab;
+    public List<BuildCost> buildCosts = new List<BuildCost>();
 
     void Awake()
     {
@@ -14,7 +15,19 @@ public class BuildMenuManager : MonoBehaviour
         {
             GameObject newItemGo = Instantiate(buildingDataPrefab);
             newItemGo.transform.SetParent(buildingContainer);
-            newItemGo.GetComponent<BuildSlot>().InitialiseBuildSlot(buildingDatas[i]);
+            newItemGo.GetComponent<BuildSlot>().InitialiseBuildSlot(buildingDatas[i], buildCosts);
         }
     }
+
+    //turn the text red if the cost is not met
+    public void UpdateSlotCost()
+    {
+
+    }
+
+    public void BuildSlotPressed(BuildingData buildingData) 
+    { 
+    
+    }
+
 }
