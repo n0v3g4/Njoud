@@ -8,7 +8,7 @@ public class BuildMenuManager : MonoBehaviour
     [SerializeField] private BuildingData[] buildingDatas;
     [SerializeField] private GameObject buildingDataPrefab;
     [SerializeField] private InventoryManager inventoryManager;
-    [HideInInspector] public List<BuildCost> buildCosts = new List<BuildCost>();
+    [HideInInspector] public List<BuildSlot> buildSlots = new List<BuildSlot>();
 
     void Awake()
     {
@@ -16,7 +16,8 @@ public class BuildMenuManager : MonoBehaviour
         {
             GameObject newItemGo = Instantiate(buildingDataPrefab);
             newItemGo.transform.SetParent(buildingContainer);
-            newItemGo.GetComponent<BuildSlot>().InitialiseBuildSlot(buildingDatas[i], buildCosts, this);
+            newItemGo.GetComponent<BuildSlot>().InitialiseBuildSlot(buildingDatas[i], this);
+            buildSlots.Add(newItemGo.GetComponent<BuildSlot>());
         }
     }
 
@@ -24,16 +25,26 @@ public class BuildMenuManager : MonoBehaviour
     public void UpdateSlotCost()
     {
         inventoryManager.updateItemDict();
-        for(int i = 0; i < buildCosts.Count; i++)
+        for(int i = 0; i < buildSlots.Count; i++)
         {
-            if (inventoryManager.itemDict.ContainsKey(buildCosts[i].item)) buildCosts[i].SetCostText(buildCosts[i].cost <= inventoryManager.itemDict[buildCosts[i].item]);
-            else buildCosts[i].SetCostText(false);
+            buildSlots[i].costMet = true;
+            for (int j = 0; j < buildSlots[i].buildCosts.Count; j++)
+            {
+                BuildCost buildCost = buildSlots[i].buildCosts[j];
+                int itemCount = 0;
+                if (inventoryManager.itemDict.ContainsKey(buildCost.item)) itemCount = inventoryManager.itemDict[buildCost.item];
+                buildCost.SetCostText(buildCost.cost <= itemCount);
+                buildSlots[i].costMet = buildCost.cost <= itemCount;
+            }
         }
     }
 
-    public void BuildSlotPressed(BuildingData buildingData) 
-    { 
-    
+    public void BuildSlotPressed(BuildingData buildingData, bool costMet) 
+    {
+        if (costMet)
+        {
+            inventoryManager.RemoveBuildCost(buildingData.Costs);
+            UpdateSlotCost();
+        }
     }
-
 }

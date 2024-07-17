@@ -22,6 +22,5 @@ public class BuildCost : MonoBehaviour
     public void SetCostText(bool costMet)
     {
         costText.color = costMet ? costMetCol : costNotMetCol;
-        Debug.Log("the cost mat was" + costMet);
     }
 }

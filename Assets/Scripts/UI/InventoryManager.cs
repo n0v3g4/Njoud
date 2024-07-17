@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -73,9 +72,35 @@ public class InventoryManager : MonoBehaviour
         return count;
     }
 
-    public void removeItem(itemData item, int count)
+    public void RemoveBuildCost(BuildingCost[] buildCosts)
     {
+        for (int i = 0; i < buildCosts.Length; i++) { RemoveItem(buildCosts[i].item, buildCosts[i].cost); }
+    }
 
+    public void RemoveItem(itemData item, int count)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+
+            if (itemInSlot != null && itemInSlot.item == item)
+            {
+                if(itemInSlot.count < count)
+                {
+                    count -= itemInSlot.count;
+                    Destroy(itemInSlot.gameObject);
+                }
+                else
+                {
+                    itemInSlot.count -= count;
+                    if (itemInSlot.count <= 0) Destroy(itemInSlot.gameObject);
+                    itemInSlot.RefreshCount();
+                    return;
+                }
+            }
+        }
+        //this is reached if  more items are removed than possible (shouldnt happen)
     }
 
     public void updateItemDict()

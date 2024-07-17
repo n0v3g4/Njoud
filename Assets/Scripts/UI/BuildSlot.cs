@@ -13,7 +13,9 @@ public class BuildSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Image image;
     private BuildMenuManager buildMenuManager;
     private BuildingData buildingData;
-    public void InitialiseBuildSlot(BuildingData _buildingData, List<BuildCost> buildCosts, BuildMenuManager _buildMenuManager)
+    [HideInInspector] public bool costMet;
+    [HideInInspector] public List<BuildCost> buildCosts = new List<BuildCost>();
+    public void InitialiseBuildSlot(BuildingData _buildingData, BuildMenuManager _buildMenuManager)
     {
         buildMenuManager = _buildMenuManager;
         buildingData = _buildingData;
@@ -31,6 +33,6 @@ public class BuildSlot : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         //gets called if the Build Menu slot is rightclicked
-        if (pointerEventData.button == PointerEventData.InputButton.Left) buildMenuManager.BuildSlotPressed(buildingData);
+        if (pointerEventData.button == PointerEventData.InputButton.Left) buildMenuManager.BuildSlotPressed(buildingData, costMet);
     }
 }
