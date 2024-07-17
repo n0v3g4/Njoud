@@ -7,7 +7,8 @@ public class BuildMenuManager : MonoBehaviour
     [SerializeField] private Transform buildingContainer;
     [SerializeField] private BuildingData[] buildingDatas;
     [SerializeField] private GameObject buildingDataPrefab;
-    public List<BuildCost> buildCosts = new List<BuildCost>();
+    [SerializeField] private InventoryManager inventoryManager;
+    [HideInInspector] public List<BuildCost> buildCosts = new List<BuildCost>();
 
     void Awake()
     {
@@ -15,14 +16,19 @@ public class BuildMenuManager : MonoBehaviour
         {
             GameObject newItemGo = Instantiate(buildingDataPrefab);
             newItemGo.transform.SetParent(buildingContainer);
-            newItemGo.GetComponent<BuildSlot>().InitialiseBuildSlot(buildingDatas[i], buildCosts);
+            newItemGo.GetComponent<BuildSlot>().InitialiseBuildSlot(buildingDatas[i], buildCosts, this);
         }
     }
 
     //turn the text red if the cost is not met
     public void UpdateSlotCost()
     {
-
+        inventoryManager.updateItemDict();
+        for(int i = 0; i < buildCosts.Count; i++)
+        {
+            if (inventoryManager.itemDict.ContainsKey(buildCosts[i].item)) buildCosts[i].SetCostText(buildCosts[i].cost <= inventoryManager.itemDict[buildCosts[i].item]);
+            else buildCosts[i].SetCostText(false);
+        }
     }
 
     public void BuildSlotPressed(BuildingData buildingData) 

@@ -1,12 +1,15 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public Transform inventoryHolder;
+
+    [HideInInspector] public Dictionary<itemData, int> itemDict = new Dictionary<itemData, int>();
 
     int SelectedSlot = -1;
     private float mouseScroll = 0;
@@ -68,6 +71,25 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return count;
+    }
+
+    public void removeItem(itemData item, int count)
+    {
+
+    }
+
+    public void updateItemDict()
+    {
+        itemDict.Clear();
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventoryItem itemInSlot = inventorySlots[i].GetComponentInChildren<InventoryItem>();
+            if (itemInSlot)
+            {
+                if (itemDict.ContainsKey(itemInSlot.item)) itemDict[itemInSlot.item] += itemInSlot.count;
+                else itemDict[itemInSlot.item] = itemInSlot.count;
+            }
+        }
     }
 
     public void SpawnNewItem(itemData item, InventorySlot slot, int count)

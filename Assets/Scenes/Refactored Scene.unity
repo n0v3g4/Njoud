@@ -175,7 +175,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -400}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &127999324
 MonoBehaviour:
@@ -945,7 +945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &292451819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1859,6 +1859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryHolder: {fileID: 2145011657}
   buildMenuHolder: {fileID: 292451819}
+  buildMenuManager: {fileID: 667790681}
 --- !u!114 &667790681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,6 +1880,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e0f43b725929ae34b89b9b5c9305cf63, type: 2}
   - {fileID: 11400000, guid: 5a25c7ecebec4de4bbc521cbace272e9, type: 2}
   buildingDataPrefab: {fileID: 4719331787862260843, guid: 5f93069954b0ee04eab82ce02832f6b7, type: 3}
+  inventoryManager: {fileID: 667790682}
+  buildCosts: []
 --- !u!114 &667790682
 MonoBehaviour:
   m_ObjectHideFlags: 0

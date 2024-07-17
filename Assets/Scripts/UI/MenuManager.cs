@@ -7,6 +7,8 @@ public class MenuManager : MonoBehaviour
     public Transform inventoryHolder;
     public Transform buildMenuHolder;
 
+    [SerializeField] private BuildMenuManager buildMenuManager;
+
     public Dictionary<MenuState, Transform> stateTransforms = new Dictionary<MenuState, Transform>();
     private MenuState currentState = MenuState.None;
 
@@ -28,7 +30,7 @@ public class MenuManager : MonoBehaviour
 
     private void changeMenuState(MenuState targetState)
     {
-        if(currentState == targetState)
+        if (currentState == targetState)
         {
             toggleMenu(stateTransforms[targetState]);
             currentState = MenuState.None;
@@ -37,6 +39,9 @@ public class MenuManager : MonoBehaviour
         toggleMenu(stateTransforms[currentState]);
         toggleMenu(stateTransforms[targetState]);
         currentState = targetState;
+
+        //updates when spesific states are targettet
+        if (targetState == MenuState.BuildMenu) buildMenuManager.UpdateSlotCost();
     }
 
     private void toggleMenu(Transform menu)

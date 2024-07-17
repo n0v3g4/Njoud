@@ -18,11 +18,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public bool originBlocked = false;
 
-    public void InitialiseItem(itemData newItem, int Tcount, InventoryManager TinventoryManager)
+    public void InitialiseItem(itemData newItem, int _count, InventoryManager _inventoryManager)
     {
         item = newItem;
-        count = Tcount;
-        inventoryManager = TinventoryManager;
+        count = _count;
+        inventoryManager = _inventoryManager;
         image.sprite = newItem.image;
         countText.raycastTarget = false;
         RefreshCount();
