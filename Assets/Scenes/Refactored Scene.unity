@@ -1752,6 +1752,7 @@ GameObject:
   - component: {fileID: 667790676}
   - component: {fileID: 667790682}
   - component: {fileID: 667790681}
+  - component: {fileID: 667790683}
   - component: {fileID: 667790680}
   m_Layer: 5
   m_Name: UI
@@ -1859,6 +1860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryHolder: {fileID: 2145011657}
   buildMenuHolder: {fileID: 292451819}
+  lockMenu: 0
   buildMenuManager: {fileID: 667790681}
 --- !u!114 &667790681
 MonoBehaviour:
@@ -1881,7 +1883,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a25c7ecebec4de4bbc521cbace272e9, type: 2}
   buildingDataPrefab: {fileID: 4719331787862260843, guid: 5f93069954b0ee04eab82ce02832f6b7, type: 3}
   inventoryManager: {fileID: 667790682}
-  buildCosts: []
+  menuManager: {fileID: 667790680}
+  buildMode: {fileID: 667790683}
+  buildSlots: []
 --- !u!114 &667790682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1929,6 +1933,20 @@ MonoBehaviour:
   - {fileID: 233806658}
   inventoryItemPrefab: {fileID: 2347486884185211292, guid: 9dd3dff2e9cb45b4084555946b376401, type: 3}
   inventoryHolder: {fileID: 2145011657}
+--- !u!114 &667790683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667790675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da450edbb0bdae40b6bedc5ebc21346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildMenuManager: {fileID: 667790681}
+  ghostBuildingPrefab: {fileID: 3996180583222259623, guid: 55478702416dd6c4aa275e1f93172b6f, type: 3}
 --- !u!1001 &675838448
 PrefabInstance:
   m_ObjectHideFlags: 0

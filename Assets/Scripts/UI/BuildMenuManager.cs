@@ -5,9 +5,11 @@ using UnityEngine;
 public class BuildMenuManager : MonoBehaviour
 {
     [SerializeField] private Transform buildingContainer;
-    [SerializeField] private BuildingData[] buildingDatas;
+    public BuildingData[] buildingDatas;
     [SerializeField] private GameObject buildingDataPrefab;
-    [SerializeField] private InventoryManager inventoryManager;
+    public InventoryManager inventoryManager;
+    public MenuManager menuManager;
+    [SerializeField] private BuildMode buildMode;
     [HideInInspector] public List<BuildSlot> buildSlots = new List<BuildSlot>();
 
     void Awake()
@@ -43,8 +45,8 @@ public class BuildMenuManager : MonoBehaviour
     {
         if (costMet)
         {
-            inventoryManager.RemoveBuildCost(buildingData.Costs);
-            UpdateSlotCost();
+            
+            buildMode.Build(buildingData);
         }
     }
 }

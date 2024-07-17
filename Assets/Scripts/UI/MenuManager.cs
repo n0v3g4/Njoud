@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     public Transform inventoryHolder;
     public Transform buildMenuHolder;
+    [HideInInspector] public bool lockMenu = false;
 
     [SerializeField] private BuildMenuManager buildMenuManager;
 
@@ -21,14 +22,14 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.inputString != null)
+        if (Input.inputString != null && !lockMenu)
         {
-            if (Input.GetKeyDown(KeyCode.Q)) changeMenuState(MenuState.BuildMenu);
-            if (Input.GetKeyDown(KeyCode.E)) changeMenuState(MenuState.Inventory);
+            if (Input.GetKeyDown(KeyCode.Q)) ChangeMenuState(MenuState.BuildMenu);
+            if (Input.GetKeyDown(KeyCode.E)) ChangeMenuState(MenuState.Inventory);
         }
     }
 
-    private void changeMenuState(MenuState targetState)
+    public void ChangeMenuState(MenuState targetState)
     {
         if (currentState == targetState)
         {
@@ -50,7 +51,6 @@ public class MenuManager : MonoBehaviour
         if (menu.gameObject.activeSelf) menu.gameObject.SetActive(false);
         else menu.gameObject.SetActive(true);
     }
-
 }
 
 public enum MenuState
