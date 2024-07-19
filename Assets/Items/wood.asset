@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: wood
   m_EditorClassIdentifier: 
   pickupTeam: 0
-  maxStack: 4
+  maxStack: 64
   type: 2
   actionType: 0
-  range: {x: 2, y: 2}
   image: {fileID: 21300000, guid: 4147314bfc7a2204493deb54c45ad3e9, type: 3}

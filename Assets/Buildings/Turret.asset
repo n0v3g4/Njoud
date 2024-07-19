@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Turret
   m_EditorClassIdentifier: 
   Costs:
-  - cost: 10
+  - cost: 4
     item: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
   description: This simple turret kills all that moves
+  size: {x: 3, y: 3, z: 0}
   buildingPrefab: {fileID: 7180552451287519864, guid: af0390dbcc66faf4f82dea18bbcdcf52, type: 3}

@@ -8,6 +8,7 @@ public class BuildingData : ScriptableObject
 {
     public BuildingCost[] Costs;
     public string description;
+    public Vector3 size; //width and hight in grid
 
     public GameObject buildingPrefab;
 }

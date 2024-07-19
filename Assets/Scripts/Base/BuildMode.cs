@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class BuildMode : MonoBehaviour
 {
+    [SerializeField] private Grid grid;
     [SerializeField] private BuildMenuManager buildMenuManager;
     private bool isBuilding = false;
     private BuildingData buildingData;
-    private GameObject ghostBuilding;
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private GameObject ghostBuildingPrefab;
-    private Vector3 mousePos;
+    [SerializeField] private GameObject ghostBuilding;
+    private Vector3 mouseGridPosition;
+
+    private int buildingScalePersize = 3;
 
     public void Awake()
     {
-        ghostBuilding = Instantiate(ghostBuildingPrefab);
         spriteRenderer = ghostBuilding.GetComponent<SpriteRenderer>();
-        ghostBuilding.SetActive(false);
     }
 
     public void Update()
     {
         if (isBuilding)
         {
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
-            ghostBuilding.transform.position = mousePos;
+            mouseGridPosition = centerGridPosition(buildingData.size);
+            ghostBuilding.transform.position = mouseGridPosition;
             if (Input.GetMouseButtonDown(0))
             {
-                ghostBuilding.SetActive(false);
                 GameObject building = Instantiate(buildingData.buildingPrefab, ghostBuilding.transform.position, Quaternion.identity);
                 buildMenuManager.inventoryManager.RemoveBuildCost(buildingData.Costs);
                 buildMenuManager.UpdateSlotCost();
@@ -45,6 +43,7 @@ public class BuildMode : MonoBehaviour
 
         buildingData = _buildingData;
         spriteRenderer.sprite = buildingData.buildingPrefab.GetComponent<SpriteRenderer>().sprite;
+        ghostBuilding.transform.localScale = buildingData.size * buildingScalePersize;
         isBuilding = true;
         ghostBuilding.SetActive(true);
     }
@@ -54,5 +53,16 @@ public class BuildMode : MonoBehaviour
         ghostBuilding.SetActive(false);
         isBuilding = false;
         buildMenuManager.menuManager.lockMenu = false;
+    }
+
+    private Vector3 centerGridPosition(Vector3 buildingSize)
+    {
+        buildingSize.x %= 2;
+        buildingSize.y %= 2;
+        Vector3 gridPosition = grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        gridPosition += Vector3.Scale(buildingSize, grid.cellSize / 2);
+        gridPosition.z = 0;
+
+        return gridPosition;
     }
 }
