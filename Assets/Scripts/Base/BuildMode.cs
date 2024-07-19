@@ -25,6 +25,7 @@ public class BuildMode : MonoBehaviour
                 if(gridManager.IsFree(mouseGridPosition - Vector3.Scale(gridManager.grid.cellSize / 2, buildingData.size), buildingData.size))
                 {
                     GameObject building = Instantiate(buildingData.buildingPrefab, ghostBuilding.transform.position, Quaternion.identity);
+                    building.transform.localScale = ghostBuilding.transform.localScale;
                     gridManager.blockTiles(mouseGridPosition - Vector3.Scale(gridManager.grid.cellSize / 2, buildingData.size), buildingData.size);
                     buildMenuManager.inventoryManager.RemoveBuildCost(buildingData.Costs);
                     buildMenuManager.UpdateSlotCost();
@@ -42,7 +43,8 @@ public class BuildMode : MonoBehaviour
 
         buildingData = _buildingData;
         spriteRenderer.sprite = buildingData.buildingPrefab.GetComponent<SpriteRenderer>().sprite;
-        ghostBuilding.transform.localScale = buildingData.size * buildingScalePersize;
+        Vector3 localScale = new(Mathf.Max(buildingData.size.x, buildingData.size.y), Mathf.Max(buildingData.size.x, buildingData.size.y), 0);
+        ghostBuilding.transform.localScale = localScale * buildingScalePersize;
         isBuilding = true;
         ghostBuilding.SetActive(true);
     }
