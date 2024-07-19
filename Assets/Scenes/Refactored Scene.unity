@@ -1943,6 +1943,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1745863ca18ae904d84581b9d6b965da, type: 2}
   - {fileID: 11400000, guid: e0f43b725929ae34b89b9b5c9305cf63, type: 2}
   - {fileID: 11400000, guid: 5a25c7ecebec4de4bbc521cbace272e9, type: 2}
+  - {fileID: 11400000, guid: a3f0f92e4fa30554cb98ac2374c10f02, type: 2}
+  - {fileID: 11400000, guid: 957a288116eb8654ab3ad149a04ae64e, type: 2}
   buildingDataPrefab: {fileID: 4719331787862260843, guid: 5f93069954b0ee04eab82ce02832f6b7, type: 3}
   inventoryManager: {fileID: 667790682}
   menuManager: {fileID: 667790680}
@@ -2190,6 +2192,10 @@ PrefabInstance:
       propertyPath: count
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6522586677925353835, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
+      propertyPath: gridManager
+      value: 
+      objectReference: {fileID: 508335837}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5066,6 +5072,10 @@ PrefabInstance:
       propertyPath: count
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8319318081390821151, guid: 7b4c2a09194818b419a46309b0edf49a, type: 3}
+      propertyPath: gridManager
+      value: 
+      objectReference: {fileID: 508335837}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

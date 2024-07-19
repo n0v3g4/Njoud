@@ -16,5 +16,5 @@ MonoBehaviour:
   - cost: 10
     item: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
   description: A small pond containing an infinite water source
-  size: {x: 2, y: 3, z: 0}
+  size: {x: 2, y: 2, z: 0}
   buildingPrefab: {fileID: 521175758979502140, guid: ddac9f6385eff0a47ba3f82cf42e1268, type: 3}

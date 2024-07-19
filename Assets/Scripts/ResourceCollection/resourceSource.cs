@@ -11,9 +11,20 @@ public class resourceSource : MonoBehaviour
     private bool dropCooldown = false;
     private float dropDistance = 1f;
 
+    [SerializeField] private GridManager gridManager;
+    [SerializeField] private Vector3Int size;
     [SerializeField] private itemData item; //the item that is dropped
     [SerializeField] private int count = 1;
     [SerializeField] private GameObject itemDropPrefab;
+
+    public void Awake()
+    {
+        if (gridManager)
+        {
+            this.transform.position = gridManager.CenterGridPosition(this.transform.position, size);
+            gridManager.blockTiles(this.transform.position, size);
+        }
+    }
 
     private void drop()
     {

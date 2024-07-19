@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38e9369aacf43b444a9f0ae059ae9adc, type: 3}
-  m_Name: Turret
+  m_Name: StoneSlab
   m_EditorClassIdentifier: 
   Costs:
   - cost: 4
     item: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
-  description: This simple turret kills all that moves
-  size: {x: 2, y: 2, z: 0}
-  buildingPrefab: {fileID: 7180552451287519864, guid: af0390dbcc66faf4f82dea18bbcdcf52, type: 3}
+  description: A slab depicting some strange symbols, I wonder what it does?
+  size: {x: 1, y: 2, z: 0}
+  buildingPrefab: {fileID: 5627207102830320772, guid: 2055a1f42e80daa409aacda579478bde, type: 3}

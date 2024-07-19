@@ -26,7 +26,7 @@ public class BuildMode : MonoBehaviour
                 {
                     GameObject building = Instantiate(buildingData.buildingPrefab, ghostBuilding.transform.position, Quaternion.identity);
                     building.transform.localScale = ghostBuilding.transform.localScale;
-                    gridManager.blockTiles(mouseGridPosition - Vector3.Scale(gridManager.grid.cellSize / 2, buildingData.size), buildingData.size);
+                    gridManager.blockTiles(mouseGridPosition, buildingData.size);
                     buildMenuManager.inventoryManager.RemoveBuildCost(buildingData.Costs);
                     buildMenuManager.UpdateSlotCost();
                     stopBuilding();
