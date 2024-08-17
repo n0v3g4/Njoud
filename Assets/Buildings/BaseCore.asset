@@ -19,5 +19,5 @@ MonoBehaviour:
     item: {fileID: 11400000, guid: c3adc815b5291a04992d9ec01a5d67fd, type: 2}
   description: This is the core of your base, essential for many buildings but also
     sure to attract monsters
-  size: {x: 2, y: 2, z: 0}
+  size: {x: 2, y: 3, z: 0}
   buildingPrefab: {fileID: 271863489840410008, guid: 4fcf9e9fe41d44a47a67342d67411dbf, type: 3}

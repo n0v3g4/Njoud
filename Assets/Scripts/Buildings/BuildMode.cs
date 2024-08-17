@@ -12,8 +12,6 @@ public class BuildMode : MonoBehaviour
     [SerializeField] private GameObject ghostBuilding;
     private Vector3 mouseGridPosition;
 
-    private int buildingScalePersize = 3;
-
     public void Update()
     {
         if (isBuilding)
@@ -43,8 +41,6 @@ public class BuildMode : MonoBehaviour
 
         buildingData = _buildingData;
         spriteRenderer.sprite = buildingData.buildingPrefab.GetComponent<SpriteRenderer>().sprite;
-        Vector3 localScale = new(Mathf.Max(buildingData.size.x, buildingData.size.y), Mathf.Max(buildingData.size.x, buildingData.size.y), 0);
-        ghostBuilding.transform.localScale = localScale * buildingScalePersize;
         isBuilding = true;
         ghostBuilding.SetActive(true);
     }

@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3554532656620256774, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_Size.x
-      value: 0.55
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: -3554532656620256774, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_Size.y
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: -3554532656620256774, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_Offset.y
-      value: -0.2
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: -3554532656620256774, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
       propertyPath: m_Direction
@@ -80,10 +80,6 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
-    - target: {fileID: 6522586677925353835, guid: af6ff9f57ef6d44419ea1ef94801d4e6, type: 3}
-      propertyPath: actionType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

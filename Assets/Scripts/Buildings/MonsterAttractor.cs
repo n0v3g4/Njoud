@@ -4,7 +4,7 @@ using System.Collections;
 public class MonsterAttractor : MonoBehaviour
 {
     public int spawnDelay;
-    private int spawnDistance = 5;
+    private int spawnDistance = 6;
     private bool spawnOnDelay = false;
     public GameObject[] spawnerPrefabs;
 
