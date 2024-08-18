@@ -1352,7 +1352,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508335834}
   m_Enabled: 1
-  m_CellSize: {x: 32, y: 32, z: 0}
+  m_CellSize: {x: 1, y: 1, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
@@ -1365,7 +1365,7 @@ Transform:
   m_GameObject: {fileID: 508335834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
+  m_LocalScale: {x: 0.64, y: 0.64, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1320235772}
@@ -1385,6 +1385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 508335835}
+  cellWidth: 0
   tilemap: {fileID: 1320235774}
   occupiedTile: {fileID: 11400000, guid: 0b839d264f9f71840861d221b1d0b9ea, type: 2}
 --- !u!1 &519420028
@@ -5070,7 +5071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8319318081390821151, guid: 7b4c2a09194818b419a46309b0edf49a, type: 3}
       propertyPath: count
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8319318081390821151, guid: 7b4c2a09194818b419a46309b0edf49a, type: 3}
       propertyPath: gridManager

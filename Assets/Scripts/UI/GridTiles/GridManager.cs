@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 public class GridManager : MonoBehaviour
 {
     public Grid grid;
-    private float cellWidth;
+    [HideInInspector] public float cellWidth;
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private TileBase occupiedTile;
 
@@ -48,10 +48,11 @@ public class GridManager : MonoBehaviour
             }
         }
     }
-    public bool IsFree(Vector3 position, Vector3 size)
+    public bool IsFree(Vector3 centerPosition, Vector3 size)
     {
+        centerPosition -= (size / 2) * cellWidth;
         Vector3Int offset = new(0, 0, 0);
-        Vector3Int tilePos = tilemap.WorldToCell(position);
+        Vector3Int tilePos = tilemap.WorldToCell(centerPosition);
         for (int x = 0; x < size.x; x++)
         {
             offset.x = x;

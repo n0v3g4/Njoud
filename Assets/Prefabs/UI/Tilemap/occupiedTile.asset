@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: occupiedTile
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 987047cfe1aad824e97c264896ef8d39, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.98039216}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3529412}
   m_Transform:
     e00: 1
     e01: 0

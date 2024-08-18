@@ -20,7 +20,7 @@ public class BuildMode : MonoBehaviour
             ghostBuilding.transform.position = mouseGridPosition;
             if (Input.GetMouseButtonDown(0))
             {
-                if(gridManager.IsFree(mouseGridPosition - Vector3.Scale(gridManager.grid.cellSize / 2, buildingData.size), buildingData.size))
+                if(gridManager.IsFree(mouseGridPosition, buildingData.size))
                 {
                     GameObject building = Instantiate(buildingData.buildingPrefab, ghostBuilding.transform.position, Quaternion.identity);
                     building.transform.localScale = ghostBuilding.transform.localScale;
