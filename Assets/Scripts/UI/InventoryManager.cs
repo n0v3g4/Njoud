@@ -93,7 +93,6 @@ public class InventoryManager : MonoBehaviour
                 else
                 {
                     itemInSlot.RefreshCount(itemInSlot.count - count);
-                    if (itemInSlot.count <= 0) Destroy(itemInSlot.gameObject);
                     return;
                 }
             }

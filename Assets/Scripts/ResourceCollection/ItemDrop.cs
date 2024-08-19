@@ -25,6 +25,7 @@ public class ItemDrop : MonoBehaviour
     public void RefreshCount(int _count)
     {
         count = _count;
+        if (count <= 0) Destroy(gameObject);
         countText.SetText(count.ToString());
         bool textActive = count > 1;
         countText.gameObject.SetActive(textActive);
@@ -42,8 +43,7 @@ public class ItemDrop : MonoBehaviour
             if (Collider.entityStats["team"] == item.pickupTeam)
             {
                 int _count = ColliderInventory.AddItem(item, count);
-                if (_count <= 0) Destroy(gameObject);
-                else RefreshCount(_count);
+                RefreshCount(_count);
                 onDelay = true;
                 StartCoroutine(pickupDelayReset(pickupAttemptDelay));
             }

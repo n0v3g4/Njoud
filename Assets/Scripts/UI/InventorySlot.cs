@@ -31,7 +31,6 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 int emptySpace = occupyingItem.item.maxStack - occupyingItem.count;
                 occupyingItem.RefreshCount(occupyingItem.count + Math.Min(emptySpace, droppedItem.count));
                 droppedItem.RefreshCount(droppedItem.count - emptySpace);
-                if (droppedItem.count <= 0) Destroy(droppedItem.gameObject);
                 return;
             }
             else 
