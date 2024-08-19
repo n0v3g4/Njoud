@@ -11,3 +11,8 @@ In addition private scripts should be [SerializField]s if their value is assigne
 3. public functions should start in UPPERCASE
 4. rest is camelCased
 5. everything with a healthbar is an instance of an entity 
+6. functions that accept temporary variables should indicate those with an underscore followed by the name of the variable it will be assigned to
+   ex:
+   setScale(float _scale){
+    scale = _scale
+   }
