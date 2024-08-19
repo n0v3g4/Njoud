@@ -37,9 +37,9 @@ public class resourceSource : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        entity Collider = collision.GetComponent<entity>();
+        Entity Collider = collision.GetComponent<Entity>();
         InventoryManager inventoryManager;
-        try { inventoryManager = collision.GetComponent<playerStatsDefaults>().inventoryManager; }
+        try { inventoryManager = collision.GetComponent<Player>().inventoryManager; }
         catch (Exception) { inventoryManager = null; }
         //ColliderItem and ColliderActinos are potentally null, which results in an ActionType of None
         itemData ColliderItem = inventoryManager == null ? null : inventoryManager.GetSelectedItem(false);

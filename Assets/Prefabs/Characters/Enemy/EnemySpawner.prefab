@@ -102,7 +102,7 @@ MonoBehaviour:
   spawns: 3
   animator: {fileID: 5421708409948826236}
   enemyPrefabs:
-  - {fileID: 6441389552986386287, guid: 0931ae82e12e9674cba50549c1edc15c, type: 3}
+  - {fileID: 8983302266280658001, guid: 85935ce30a011b94a8137e92fbf0e651, type: 3}
 --- !u!95 &5421708409948826236
 Animator:
   serializedVersion: 5

@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using System;
 
@@ -34,15 +33,13 @@ public class ItemDrop : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        entity Collider = collision.GetComponent<entity>();
+        Entity Collider = collision.GetComponent<Entity>();
         InventoryManager ColliderInventory;
-        try { ColliderInventory = collision.GetComponent<playerStatsDefaults>().inventoryManager; }
+        try { ColliderInventory = collision.GetComponent<Player>().inventoryManager; }
         catch (Exception) { ColliderInventory = null; }
         if (Collider != null && !onDelay)
         {
-            float colliderTeam = -1;
-            if (Collider.entityStats.TryGetValue("team", out float value)) colliderTeam = value;
-            if (colliderTeam == item.pickupTeam)
+            if (Collider.entityStats["team"] == item.pickupTeam)
             {
                 count = ColliderInventory.AddItem(item, count);
                 if (count <= 0) Destroy(gameObject);

@@ -216,7 +216,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateTurret: 1
-  enemyMask:
+  damage:
+    elements:
+    - 10
+    - 10
+    - 10
+    - 10
+  targetMask:
     serializedVersion: 2
     m_Bits: 2048
   bulletPrefab: {fileID: 5663161288077285379, guid: e433495d177837049ac020fd807fc8b3, type: 3}
