@@ -14,10 +14,10 @@ public class ItemDrop : MonoBehaviour
     [HideInInspector] public itemData item;
     [HideInInspector] public int count;
 
-    public void InitialiseItem(itemData newItem, int Tcount, float pickupDelay)
+    public void InitialiseItem(itemData newItem, int _count, float pickupDelay)
     {
         item = newItem;
-        count = Tcount;
+        count = _count;
         image.sprite = newItem.image;
         onDelay = true;
         RefreshCount();
