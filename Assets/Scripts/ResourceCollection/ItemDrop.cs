@@ -17,14 +17,14 @@ public class ItemDrop : MonoBehaviour
     public void InitialiseItem(itemData newItem, int _count, float pickupDelay)
     {
         item = newItem;
-        count = _count;
         image.sprite = newItem.image;
         onDelay = true;
-        RefreshCount();
+        RefreshCount(_count);
         StartCoroutine(pickupDelayReset(pickupDelay));
     }
-    public void RefreshCount()
+    public void RefreshCount(int _count)
     {
+        count = _count;
         countText.SetText(count.ToString());
         bool textActive = count > 1;
         countText.gameObject.SetActive(textActive);
@@ -41,9 +41,9 @@ public class ItemDrop : MonoBehaviour
         {
             if (Collider.entityStats["team"] == item.pickupTeam)
             {
-                count = ColliderInventory.AddItem(item, count);
-                if (count <= 0) Destroy(gameObject);
-                else RefreshCount();
+                int _count = ColliderInventory.AddItem(item, count);
+                if (_count <= 0) Destroy(gameObject);
+                else RefreshCount(_count);
                 onDelay = true;
                 StartCoroutine(pickupDelayReset(pickupAttemptDelay));
             }

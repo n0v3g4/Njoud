@@ -20,15 +20,15 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void InitialiseItem(itemData newItem, int _count, InventoryManager _inventoryManager)
     {
         item = newItem;
-        count = _count;
         inventoryManager = _inventoryManager;
         image.sprite = newItem.image;
         countText.raycastTarget = false;
-        RefreshCount();
+        RefreshCount(_count);
     }
 
-    public void RefreshCount()
+    public void RefreshCount(int _count)
     {
+        count = _count;
         countText.SetText(count.ToString());
         bool textActive = count > 1;
         countText.gameObject.SetActive(textActive);
@@ -46,8 +46,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             //split the stack
             int split = Mathf.FloorToInt(count / 2);
             int remainder = count - split;
-            count = split;
-            RefreshCount();
+            RefreshCount(split);
             //create a new InventoryItem for the remainder
             inventoryManager.SpawnNewItem(item, parentAfterDrag.GetComponent<InventorySlot>(), remainder);
             originBlocked = true;
@@ -65,8 +64,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             //this happens only when splitting a Stack and not depositing the split fully
             InventoryItem occupyingItem = parentAfterDrag.GetChild(0).gameObject.GetComponent<InventoryItem>();
-            occupyingItem.count += count;
-            occupyingItem.RefreshCount();
+            occupyingItem.RefreshCount((occupyingItem.count + count));
             Destroy(gameObject);
         }
         else transform.SetParent(parentAfterDrag);

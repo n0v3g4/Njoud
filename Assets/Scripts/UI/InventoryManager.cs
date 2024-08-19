@@ -51,8 +51,7 @@ public class InventoryManager : MonoBehaviour
                 if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < itemInSlot.item.maxStack)
                 {
                     int emptySpace = itemInSlot.item.maxStack - itemInSlot.count;
-                    itemInSlot.count += Math.Min(count, emptySpace);
-                    itemInSlot.RefreshCount();
+                    itemInSlot.RefreshCount(itemInSlot.count + Math.Min(count, emptySpace));
                     return AddItem(item, Math.Max(count - emptySpace, 0));
                 }
             }
@@ -93,9 +92,8 @@ public class InventoryManager : MonoBehaviour
                 }
                 else
                 {
-                    itemInSlot.count -= count;
+                    itemInSlot.RefreshCount(itemInSlot.count - count);
                     if (itemInSlot.count <= 0) Destroy(itemInSlot.gameObject);
-                    itemInSlot.RefreshCount();
                     return;
                 }
             }
