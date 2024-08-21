@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -51960114, guid: 26d117949e51de1488be53208ede508c, type: 3}
+    - target: {fileID: 2638632874360747140, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsK.Array.size
       value: 3
@@ -46,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4534368145940888006, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4534368145940888006, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: m_LocalPosition.x

@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2628964700400869876, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
+      propertyPath: entityStatsK.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628964700400869876, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
+      propertyPath: entityStatsV.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628964700400869876, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
+      propertyPath: entityStatsK.Array.data[0]
+      value: animation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628964700400869876, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
+      propertyPath: entityStatsV.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3728806953071802908, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -56,13 +72,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: buildingPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 5638985320873664359, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5616570573737895700, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5638985320873664359, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
-      insertIndex: 4
+      insertIndex: 5
       addedObject: {fileID: 7536796926108587936}
   m_SourcePrefab: {fileID: 100100000, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
 --- !u!1 &2124884698836023145 stripped

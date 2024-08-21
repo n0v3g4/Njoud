@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5212618073954099122}
   - component: {fileID: 5212618073954099123}
-  - component: {fileID: 5212618073954099132}
   - component: {fileID: 5421708409948826236}
+  - component: {fileID: 5212618073954099132}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -86,23 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5212618073954099132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5212618073954099133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387d2f7e96ef262438495fef491a80d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnDelay: 5
-  spawns: 3
-  animator: {fileID: 5421708409948826236}
-  enemyPrefabs:
-  - {fileID: 8983302266280658001, guid: 85935ce30a011b94a8137e92fbf0e651, type: 3}
 --- !u!95 &5421708409948826236
 Animator:
   serializedVersion: 5
@@ -123,3 +106,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &5212618073954099132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212618073954099133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387d2f7e96ef262438495fef491a80d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnDelay: 5
+  spawns: 3
+  animator: {fileID: 5421708409948826236}
+  enemyPrefabs:
+  - {fileID: 7572654896566820399, guid: 5b361b5a4ada2374685d5bbad55c4431, type: 3}
