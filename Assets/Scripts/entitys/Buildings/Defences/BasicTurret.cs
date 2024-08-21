@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class BasicTurret : MonoBehaviour
 {
+    [SerializeField] private Entity entity;
     public bool rotateTurret;
-    private float range = 5f;
     private float rotationSpeed = 200f;
-    private float fireDelay = 1f;
     private bool fireOnDelay = false;
-    private int targetTeam = -1;
-    private Dictionary<string, float> damageStats = new Dictionary<string, float>();
-    public elementArray damage = new elementArray(new float[] { 10, 10, 10, 10 });
     private int bulletLifeTime = 5;
 
     [SerializeField] private LayerMask targetMask;
@@ -19,11 +15,6 @@ public class BasicTurret : MonoBehaviour
     [SerializeField] private Transform bulletOrigin;
 
     private Entity target;
-
-    private void Start()
-    {
-        damageStats["knockback"] = 25;
-    }
 
     // Update is called once per frame
     void Update()
@@ -39,11 +30,14 @@ public class BasicTurret : MonoBehaviour
 
     private void findTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, range, (Vector2)transform.position, 0f, targetMask);
-
-        if(hits.Length > 0)
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, entity.entityStats["range"], (Vector2)transform.position, 0f, targetMask);
+        for (int i = 0; i < hits.Length; i++)
         {
-            target = hits[0].transform.GetComponent<Entity>();
+            if (hits[i].transform.GetComponent<Entity>().entityStats["team"] != entity.entityStats["team"])
+            {
+                target = hits[0].transform.GetComponent<Entity>();
+                return;
+            }
         }
     }
 
@@ -54,20 +48,20 @@ public class BasicTurret : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed*Time.deltaTime);
     }
 
-    private bool checkTargetInRange() { return Vector2.Distance(target.transform.position, transform.position) <= range; }
+    private bool checkTargetInRange() { return Vector2.Distance(target.transform.position, transform.position) <= entity.entityStats["range"]; }
 
     private void fire()
     {
         Vector2 direction = (target.transform.position - transform.position).normalized;
         GameObject bullet = Instantiate(bulletPrefab, bulletOrigin.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().initializeBullet(direction, bulletLifeTime, targetTeam, damage, damageStats);
+        bullet.GetComponent<Bullet>().initializeBullet(direction, bulletLifeTime, entity.entityStats["team"], entity.entityElements["damage"], entity.damageStats);
         fireOnDelay = true;
         StartCoroutine(fireCooldownReset());
     }
 
     private IEnumerator fireCooldownReset()
     {
-        yield return new WaitForSeconds(fireDelay);
+        yield return new WaitForSeconds(entity.entityStats["as"]);
         fireOnDelay = false;
     }
 

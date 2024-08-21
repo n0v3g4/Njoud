@@ -10,35 +10,67 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: damageStatsK.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: damageStatsV.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsK.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsV.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: damageStatsK.Array.data[0]
       value: knockback
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: damageStatsK.Array.data[1]
+      value: damageScaling
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: damageStatsV.Array.data[0]
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: damageStatsV.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsK.Array.data[0]
-      value: 
+      value: ms
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsK.Array.data[1]
+      value: as
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsK.Array.data[2]
+      value: hpMax
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsK.Array.data[3]
+      value: range
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsV.Array.data[0]
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsV.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsV.Array.data[2]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsV.Array.data[3]
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3806479692005631564, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: m_Layer
@@ -92,10 +124,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemyPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 4833381247381134525, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 5916565108208159176, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -126,10 +154,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4833381247381134525, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: -8178695629203959040}
+      insertIndex: 4
+      addedObject: {fileID: 585934284276986450}
     - targetCorrespondingSourceObject: {fileID: 4833381247381134525, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       insertIndex: 6
+      addedObject: {fileID: -8178695629203959040}
+    - targetCorrespondingSourceObject: {fileID: 4833381247381134525, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      insertIndex: 7
       addedObject: {fileID: 6825177248598723149}
   m_SourcePrefab: {fileID: 100100000, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
 --- !u!1 &5508973313017043772 stripped
@@ -142,6 +173,51 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4833381247381134525, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
   m_PrefabInstance: {fileID: 2513363478645481784}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &585934284276986450
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057945899409177989}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 0.8, y: 0.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.85, y: 0.85}
+  m_EdgeRadius: 0
 --- !u!114 &-8178695629203959040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +236,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
   pf: {fileID: 6825177248598723149}
 --- !u!114 &6825177248598723149
 MonoBehaviour:

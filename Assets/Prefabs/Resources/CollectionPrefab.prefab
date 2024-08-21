@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9147761102387465685}
   - component: {fileID: -3554532656620256774}
   - component: {fileID: 6522586677925353835}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: CollectionPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2062822973
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -412945639, guid: bdd33f5c6887b6d4f9c9b0f168d9c557, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

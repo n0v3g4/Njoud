@@ -45,7 +45,6 @@ public class BuildMenuManager : MonoBehaviour
     {
         if (costMet)
         {
-            
             buildMode.Build(buildingData);
         }
     }

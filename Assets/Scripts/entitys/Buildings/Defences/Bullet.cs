@@ -9,15 +9,15 @@ public class Bullet : MonoBehaviour
     private Dictionary<string, float> damageStats = new Dictionary<string, float>(); //basic values
     public elementArray damage = new elementArray(new float[] { 1, 1, 1, 1 });
     private float bulletSpeed = 5f;
-    private int targetTeam = -1;
+    private float team = 0;
     private int lifeTime = 5;
 
     private bool hit = false;
 
-    public void initializeBullet(Vector2 _direction, int _lifeTime, int _targetTeam, elementArray _damage, Dictionary<string, float> _damageStats) { 
+    public void initializeBullet(Vector2 _direction, int _lifeTime, float _team, elementArray _damage, Dictionary<string, float> _damageStats) { 
         direction = _direction;
         lifeTime = _lifeTime;
-        targetTeam = _targetTeam;
+        team = _team;
         damageStats = _damageStats;
         damage = _damage;
         StartCoroutine(dieAfterLifeTime());
@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
         Entity Collider = collision.GetComponent<Entity>();
         if (Collider != null && !hit)
         {
-            if (Collider.entityStats["team"] == targetTeam)
+            if (Collider.entityStats["team"] != team)
             {
                 hit = true;
                 Vector2 collisionDirection = (collision.GetComponent<Transform>().position - rb.transform.position);

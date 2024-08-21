@@ -12,14 +12,14 @@ TagManager:
   - Entity
   - Water
   - UI
-  - Player
-  - PlayerDetector
-  - Spell
   - Environment
   - Item
-  - Enemy
-  - Bullet
-  - Building
+  - Projectile
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

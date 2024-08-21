@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BuildMode : MonoBehaviour
 {
+    private float buildingTeam = 0;
     [SerializeField] private GridManager gridManager;
     [SerializeField] private BuildMenuManager buildMenuManager;
     private bool isBuilding = false;
@@ -24,6 +25,7 @@ public class BuildMode : MonoBehaviour
                 {
                     GameObject building = Instantiate(buildingData.buildingPrefab, ghostBuilding.transform.position, Quaternion.identity);
                     building.transform.localScale = ghostBuilding.transform.localScale;
+                    building.GetComponent<Entity>().entityStats["team"] = buildingTeam;
                     gridManager.blockTiles(mouseGridPosition, buildingData.size);
                     buildMenuManager.inventoryManager.RemoveBuildCost(buildingData.Costs);
                     buildMenuManager.UpdateSlotCost();

@@ -16,7 +16,7 @@ public class Entity : MonoBehaviour
     public Dictionary<string, elementArray> entityElements = new Dictionary<string, elementArray>();
 
     //initialises the entity
-    void Start()
+    public void Awake()
     {
         defaultValues();
         GetComponent<entityStatsOverrites>().OverrideStats();
@@ -29,22 +29,24 @@ public class Entity : MonoBehaviour
     //set default values to prevent excessive tryGetValue checks
     private void defaultValues()
     {
+        //stats that are commented out are not used by all entitys by default
         entityStats["hp"]        = 0;
         entityStats["hpMax"]     = 1;
         entityStats["team"]      = -1;
-        entityStats["ms"]        = 10; //movement speed
-        entityStats["as"]        = 1; //attack speed
         entityStats["animation"] = 1; //which animation script to use
+        //entityStats["as"]        = 1; //attack speed
+        //entityStats["ms"]        = 10; //movement speed
+        //entityStats["range"] = 5; //target detection range
 
         entityElements["damage"] = new elementArray(new float[] { 1, 1, 1, 1 });
         entityElements["armor"]  = new elementArray(new float[] { 0, 0, 0, 0 });
         entityElements["shield"] = new elementArray(new float[] { 0, 0, 0, 0 });
 
-        damageStats["knockback"]           = 0;
-        damageStats["collisionDirectionX"] = 0;
-        damageStats["collisionDirectionY"] = 0;
+        //damageStats["knockback"]           = 0;
+        //damageStats["collisionDirectionX"] = 0;
+        //damageStats["collisionDirectionY"] = 0;
 
-        damageStats["damageScaling"] = 1;
+        //damageStats["damageScaling"] = 1;
     }
 
     //every entity can take damage (overrite this in spesific cases)
@@ -57,11 +59,13 @@ public class Entity : MonoBehaviour
         for (int i = 0; i < damage.elements.Length; i++)
         {
             //must be > 0 to prevent negative damage; also scaling the damage
-            if(entityElements["armor"].elements[i] > 0) damage.elements[i] *= (1 / entityElements["armor"].elements[i]) * recievedDamageStats["damageScaling"]; ;
+            if(entityElements["armor"].elements[i] > 0) damage.elements[i] *= 1 / entityElements["armor"].elements[i];
+            damage.elements[i] = Mathf.Max(0, damage.elements[i] - entityElements["shield"].elements[i]);
         }
 
         //calculate true damage
         foreach (float damageElement in damage.elements) trueDamage += damageElement;
+        trueDamage *= recievedDamageStats["damageScaling"];
         entityStats["hp"] -= trueDamage;
 
         //create a damage popup

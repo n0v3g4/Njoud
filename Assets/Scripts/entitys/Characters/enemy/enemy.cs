@@ -6,7 +6,6 @@ public class Enemy : Entity
     [HideInInspector] public Entity target;
     [SerializeField] private LayerMask targetMask;
     public pathFinding pf;
-    private float detectionRange = 5;
     private float minimumTargetDistance = 0.01f;
     private bool attackCooldown = false;
 
@@ -23,10 +22,17 @@ public class Enemy : Entity
 
     private void findTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, detectionRange, (Vector2)transform.position, 0f, targetMask);
-        if (hits.Length > 0) { target = hits[0].transform.GetComponent<Entity>();  }
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, entityStats["range"], (Vector2)transform.position, 0f, targetMask);
+        for(int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i].transform.GetComponent<Entity>().entityStats["team"] != entityStats["team"])
+            {
+                target = hits[0].transform.GetComponent<Entity>();
+                return;
+            }
+        }
     }
-    private bool checkTargetInRange() { return Vector2.Distance(target.transform.position, transform.position) <= detectionRange; }
+    private bool checkTargetInRange() { return Vector2.Distance(target.transform.position, transform.position) <= entityStats["range"]; }
 
     private void OnTriggerStay2D(Collider2D collision)
     {

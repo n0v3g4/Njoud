@@ -38,7 +38,7 @@ public class ItemDrop : MonoBehaviour
         InventoryManager ColliderInventory;
         try { ColliderInventory = collision.GetComponent<Player>().inventoryManager; }
         catch (Exception) { ColliderInventory = null; }
-        if (Collider != null && !onDelay)
+        if (ColliderInventory != null && !onDelay)
         {
             if (Collider.entityStats["team"] == item.pickupTeam)
             {
