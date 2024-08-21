@@ -5,13 +5,14 @@ public class Enemy : Entity
 {
     [HideInInspector] public Entity target;
     [SerializeField] private LayerMask targetMask;
+    public pathFinding pf;
     private float detectionRange = 5;
     private float minimumTargetDistance = 0.01f;
     private bool attackCooldown = false;
 
     private void FixedUpdate()
     {
-        if(target != null && Vector2.Distance(rb.transform.position, target.transform.position) > minimumTargetDistance) Move();
+        if(target != null && Vector2.Distance(rb.transform.position, target.transform.position) > minimumTargetDistance) pf.Move(target.transform, rb, entityStats["ms"]);
     }
 
     private void Update()
@@ -19,8 +20,6 @@ public class Enemy : Entity
         if (!target) findTarget();
         else if (!checkTargetInRange()) target = null;
     }
-
-    public virtual void Move() { }
 
     private void findTarget()
     {

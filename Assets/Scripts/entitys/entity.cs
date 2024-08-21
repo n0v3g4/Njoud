@@ -32,7 +32,7 @@ public class Entity : MonoBehaviour
         entityStats["hp"]        = 0;
         entityStats["hpMax"]     = 1;
         entityStats["team"]      = -1;
-        entityStats["ms"]        = 1; //movement speed
+        entityStats["ms"]        = 10; //movement speed
         entityStats["as"]        = 1; //attack speed
         entityStats["animation"] = 0; //which animation script to use
 
