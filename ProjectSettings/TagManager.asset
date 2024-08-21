@@ -51,6 +51,9 @@ TagManager:
   - name: Environment
     uniqueID: 2062822973
     locked: 0
+  - name: informationBars
+    uniqueID: 3557884565
+    locked: 0
   - name: Popups
     uniqueID: 1685389333
     locked: 0

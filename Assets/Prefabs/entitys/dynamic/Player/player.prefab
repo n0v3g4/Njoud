@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsK.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsV.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsK.Array.data[0]
@@ -41,12 +41,20 @@ PrefabInstance:
       value: hpMax
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsK.Array.data[3]
+      value: animation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsV.Array.data[1]
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsV.Array.data[2]
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsV.Array.data[3]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4534368145940888006, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: m_RootOrder

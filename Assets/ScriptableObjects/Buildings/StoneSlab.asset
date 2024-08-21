@@ -17,4 +17,4 @@ MonoBehaviour:
     item: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
   description: A slab depicting some strange symbols, I wonder what it does?
   size: {x: 1, y: 2, z: 0}
-  buildingPrefab: {fileID: 5627207102830320772, guid: 2055a1f42e80daa409aacda579478bde, type: 3}
+  buildingPrefab: {fileID: 7087058782268209337, guid: 2055a1f42e80daa409aacda579478bde, type: 3}

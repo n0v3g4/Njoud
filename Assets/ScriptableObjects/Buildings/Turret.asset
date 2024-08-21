@@ -17,4 +17,4 @@ MonoBehaviour:
     item: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
   description: This simple turret kills all that moves
   size: {x: 2, y: 2, z: 0}
-  buildingPrefab: {fileID: 7180552451287519864, guid: af0390dbcc66faf4f82dea18bbcdcf52, type: 3}
+  buildingPrefab: {fileID: 5305689725345901223, guid: 9261c9d43e99da647959f8dca64b2ede, type: 3}

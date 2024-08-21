@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38e9369aacf43b444a9f0ae059ae9adc, type: 3}
-  m_Name: Wall
+  m_Name: BaseCore
   m_EditorClassIdentifier: 
   Costs:
-  - cost: 2
+  - cost: 20
     item: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
-  description: The first line of defense in any base
-  size: {x: 1, y: 1, z: 0}
-  buildingPrefab: {fileID: 1241033443741064520, guid: 1bd321fdcc0023149aca25c45055888b, type: 3}
+  - cost: 20
+    item: {fileID: 11400000, guid: c3adc815b5291a04992d9ec01a5d67fd, type: 2}
+  description: This is the core of your base, essential for many buildings but also
+    sure to attract monsters
+  size: {x: 2, y: 3, z: 0}
+  buildingPrefab: {fileID: 2528676583836881299, guid: 90ba0cba6f4244b4ba88108e70f42186, type: 3}

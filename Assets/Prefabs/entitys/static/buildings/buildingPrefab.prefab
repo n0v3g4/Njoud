@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2628964700400869876, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
       propertyPath: entityStatsK.Array.data[0]
-      value: animation
+      value: team
       objectReference: {fileID: 0}
     - target: {fileID: 2628964700400869876, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
       propertyPath: entityStatsV.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3728806953071802908, guid: ebabc128f0b3a224894d7afd385e739c, type: 3}
       propertyPath: m_RootOrder

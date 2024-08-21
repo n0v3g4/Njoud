@@ -34,7 +34,7 @@ public class Entity : MonoBehaviour
         entityStats["team"]      = -1;
         entityStats["ms"]        = 10; //movement speed
         entityStats["as"]        = 1; //attack speed
-        entityStats["animation"] = 0; //which animation script to use
+        entityStats["animation"] = 1; //which animation script to use
 
         entityElements["damage"] = new elementArray(new float[] { 1, 1, 1, 1 });
         entityElements["armor"]  = new elementArray(new float[] { 0, 0, 0, 0 });

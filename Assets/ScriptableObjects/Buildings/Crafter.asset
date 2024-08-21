@@ -19,4 +19,4 @@ MonoBehaviour:
     item: {fileID: 11400000, guid: c3adc815b5291a04992d9ec01a5d67fd, type: 2}
   description: Used to create the most basic tools
   size: {x: 2, y: 2, z: 0}
-  buildingPrefab: {fileID: 6123876640289293364, guid: 5749f6d6cb421a049b7b80f3f7607d6a, type: 3}
+  buildingPrefab: {fileID: 5724384995170242367, guid: 5749f6d6cb421a049b7b80f3f7607d6a, type: 3}
