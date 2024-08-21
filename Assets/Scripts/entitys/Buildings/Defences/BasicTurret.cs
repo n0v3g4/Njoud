@@ -35,7 +35,7 @@ public class BasicTurret : MonoBehaviour
         {
             if (hits[i].transform.GetComponent<Entity>().entityStats["team"] != entity.entityStats["team"])
             {
-                target = hits[0].transform.GetComponent<Entity>();
+                target = hits[i].transform.GetComponent<Entity>();
                 return;
             }
         }

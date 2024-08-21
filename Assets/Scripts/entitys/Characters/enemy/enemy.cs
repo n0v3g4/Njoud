@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    [HideInInspector] public Entity target;
+    [HideInInspector] public Rigidbody2D target;
     [SerializeField] private LayerMask targetMask;
     public pathFinding pf;
     private float minimumTargetDistance = 0.01f;
@@ -11,7 +11,7 @@ public class Enemy : Entity
 
     private void FixedUpdate()
     {
-        if(target != null && Vector2.Distance(rb.transform.position, target.transform.position) > minimumTargetDistance) pf.Move(target.transform, rb, entityStats["ms"]);
+        if(target != null && Vector2.Distance(rb.transform.position, target.position) > minimumTargetDistance) pf.Move(target.position, rb, entityStats["ms"]);
     }
 
     private void Update()
@@ -27,12 +27,12 @@ public class Enemy : Entity
         {
             if (hits[i].transform.GetComponent<Entity>().entityStats["team"] != entityStats["team"])
             {
-                target = hits[0].transform.GetComponent<Entity>();
+                target = hits[i].transform.GetComponent<Rigidbody2D>();
                 return;
             }
         }
     }
-    private bool checkTargetInRange() { return Vector2.Distance(target.transform.position, transform.position) <= entityStats["range"]; }
+    private bool checkTargetInRange() { return Vector2.Distance(target.position, transform.position) <= entityStats["range"]; }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -55,5 +55,13 @@ public class Enemy : Entity
     {
         yield return new WaitForSeconds(entityStats["as"]);
         attackCooldown = false;
+    }
+
+    //display range in editor
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, entityStats["range"]);
     }
 }
