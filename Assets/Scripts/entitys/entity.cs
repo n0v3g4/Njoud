@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Entity : MonoBehaviour
 {
@@ -91,8 +92,15 @@ public class Entity : MonoBehaviour
     //called if hp gets below 0
     public void Die()
     {
-        //delete
+        //apply spesifics
         deathSpesifics();
+
+        //disable movement and colissions and bars
+        Destroy(rb);
+        foreach (Collider2D col in rb.GetComponents<Collider2D>()) Destroy(col);
+        barsHolder.SetActive(false);
+
+        //play animation and destroy
         if (animationScript == null) Destroy(gameObject);
         else StartCoroutine(animationScript.Die());
     }
