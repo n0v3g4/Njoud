@@ -4876,7 +4876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDropPrefab: {fileID: 120215399521755132, guid: 7170b7832931cf24c9589048b49fc5f2, type: 3}
-  playerPosition: {fileID: 0}
+  playerPosition: {fileID: 1895844805}
 --- !u!1001 &1711153456
 PrefabInstance:
   m_ObjectHideFlags: 0

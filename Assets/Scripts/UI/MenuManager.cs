@@ -41,7 +41,7 @@ public class MenuManager : MonoBehaviour
         currentState = targetState;
 
         //updates when spesific states are targettet
-        if (targetState == MenuState.BuildMenu) buildMenuManager.UpdateSlotCost();
+        if (targetState == MenuState.BuildMenu) buildMenuManager.UpdateSlotCosts();
     }
 
     private void toggleMenu(Transform menu)

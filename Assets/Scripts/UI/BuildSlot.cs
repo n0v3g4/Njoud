@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,7 +11,7 @@ public class BuildSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Transform costHolder;
     [SerializeField] private Image image;
     private BuildMenuManager buildMenuManager;
-    private BuildingData buildingData;
+    [HideInInspector] public BuildingData buildingData;
     [HideInInspector] public bool costMet;
     [HideInInspector] public List<BuildCost> buildCosts = new List<BuildCost>();
     public void InitialiseBuildSlot(BuildingData _buildingData, BuildMenuManager _buildMenuManager)
@@ -33,6 +32,6 @@ public class BuildSlot : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         //gets called if the Build Menu slot is rightclicked
-        if (pointerEventData.button == PointerEventData.InputButton.Left) buildMenuManager.BuildSlotPressed(buildingData, costMet);
+        if (pointerEventData.button == PointerEventData.InputButton.Left) buildMenuManager.BuildSlotPressed(this);
     }
 }

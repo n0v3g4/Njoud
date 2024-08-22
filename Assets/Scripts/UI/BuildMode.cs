@@ -6,7 +6,7 @@ public class BuildMode : MonoBehaviour
     [SerializeField] private GridManager gridManager;
     [SerializeField] private BuildMenuManager buildMenuManager;
     private bool isBuilding = false;
-    private BuildingData buildingData;
+    private BuildSlot buildSlot;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject ghostBuilding;
     private Vector3 mouseGridPosition;
@@ -18,9 +18,9 @@ public class BuildMode : MonoBehaviour
     {
         if (isBuilding)
         {
-            mouseGridPosition = gridManager.CenterGridPosition(buildingData.size);
+            mouseGridPosition = gridManager.CenterGridPosition(buildSlot.buildingData.size);
             ghostBuilding.transform.position = mouseGridPosition;
-            if (!gridManager.IsFree(mouseGridPosition, buildingData.size))
+            if (!gridManager.IsFree(mouseGridPosition, buildSlot.buildingData.size))
             {
                 spriteRenderer.color = redTrans;
             }
@@ -29,14 +29,14 @@ public class BuildMode : MonoBehaviour
                 spriteRenderer.color = blueTrans;
                 if (Input.GetMouseButtonDown(0))
                 {
-                    GameObject building = Instantiate(buildingData.buildingPrefab, ghostBuilding.transform.position, Quaternion.identity);
+                    GameObject building = Instantiate(buildSlot.buildingData.buildingPrefab, ghostBuilding.transform.position, Quaternion.identity);
                     building.transform.localScale = ghostBuilding.transform.localScale;
                     building.GetComponent<Entity>().entityStats["team"] = buildingTeam;
-                    building.GetComponent<Building>().Setup(gridManager, mouseGridPosition, buildingData.size);
-                    gridManager.blockTiles(mouseGridPosition, buildingData.size);
-                    buildMenuManager.inventoryManager.RemoveBuildCost(buildingData.Costs);
-                    buildMenuManager.UpdateSlotCost();
-                    stopBuilding();
+                    building.GetComponent<Building>().Setup(gridManager, mouseGridPosition, buildSlot.buildingData.size);
+                    gridManager.blockTiles(mouseGridPosition, buildSlot.buildingData.size);
+                    buildMenuManager.inventoryManager.RemoveBuildCost(buildSlot.buildingData.Costs);
+                    buildMenuManager.UpdateSlotCost(buildSlot);
+                    if(!Input.GetKey(KeyCode.LeftShift) || !buildSlot.costMet) stopBuilding();
                 }
             }
 
@@ -44,13 +44,13 @@ public class BuildMode : MonoBehaviour
         }
     }
 
-    public void Build(BuildingData _buildingData)
+    public void Build(BuildSlot _buildSlot)
     {
         buildMenuManager.menuManager.ChangeMenuState(MenuState.None);
         buildMenuManager.menuManager.lockMenu = true;
 
-        buildingData = _buildingData;
-        spriteRenderer.sprite = buildingData.buildingPrefab.GetComponent<SpriteRenderer>().sprite;
+        buildSlot = _buildSlot;
+        spriteRenderer.sprite = buildSlot.buildingData.buildingPrefab.GetComponent<SpriteRenderer>().sprite;
         isBuilding = true;
         ghostBuilding.SetActive(true);
     }

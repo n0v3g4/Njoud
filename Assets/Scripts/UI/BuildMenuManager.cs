@@ -24,28 +24,32 @@ public class BuildMenuManager : MonoBehaviour
     }
 
     //turn the text red if the cost is not met
-    public void UpdateSlotCost()
+    public void UpdateSlotCosts()
     {
-        inventoryManager.updateItemDict();
         for(int i = 0; i < buildSlots.Count; i++)
         {
-            buildSlots[i].costMet = true;
-            for (int j = 0; j < buildSlots[i].buildCosts.Count; j++)
-            {
-                BuildCost buildCost = buildSlots[i].buildCosts[j];
-                int itemCount = 0;
-                if (inventoryManager.itemDict.ContainsKey(buildCost.item)) itemCount = inventoryManager.itemDict[buildCost.item];
-                buildCost.SetCostText(buildCost.cost <= itemCount);
-                buildSlots[i].costMet = buildCost.cost <= itemCount;
-            }
+            UpdateSlotCost(buildSlots[i]);
+        }
+    }
+    public void UpdateSlotCost(BuildSlot buildSlot)
+    {
+        inventoryManager.updateItemDict();
+        buildSlot.costMet = true;
+        for (int i = 0; i < buildSlot.buildCosts.Count; i++)
+        {
+            BuildCost buildCost = buildSlot.buildCosts[i];
+            int itemCount = 0;
+            if (inventoryManager.itemDict.ContainsKey(buildCost.item)) itemCount = inventoryManager.itemDict[buildCost.item];
+            buildCost.SetCostText(buildCost.cost <= itemCount);
+            buildSlot.costMet = (buildSlot.costMet && buildCost.cost <= itemCount);
         }
     }
 
-    public void BuildSlotPressed(BuildingData buildingData, bool costMet) 
+    public void BuildSlotPressed(BuildSlot buildSlot) 
     {
-        if (costMet)
+        if (buildSlot.costMet)
         {
-            buildMode.Build(buildingData);
+            buildMode.Build(buildSlot);
         }
     }
 }
