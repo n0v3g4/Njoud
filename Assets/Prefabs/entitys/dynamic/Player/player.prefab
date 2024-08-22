@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d350b82599dc2c043bcf9fe4376e24a5, type: 2}
+    - target: {fileID: 1351711872909608676, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: fading
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2638632874360747140, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: m_Sprite
       value: 

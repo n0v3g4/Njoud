@@ -27,7 +27,7 @@ public class damagePopup : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position += new Vector3(0f, riseSpeed, 0f);
-        //reduch alpha of color
+        //reduce alpha of color
         if (dissapearing)
         {
             textColor.a -= dissapearSpeed;
