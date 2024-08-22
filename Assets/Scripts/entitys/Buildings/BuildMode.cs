@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildMode : MonoBehaviour
@@ -26,6 +24,7 @@ public class BuildMode : MonoBehaviour
                     GameObject building = Instantiate(buildingData.buildingPrefab, ghostBuilding.transform.position, Quaternion.identity);
                     building.transform.localScale = ghostBuilding.transform.localScale;
                     building.GetComponent<Entity>().entityStats["team"] = buildingTeam;
+                    building.GetComponent<Building>().Setup(gridManager, mouseGridPosition, buildingData.size);
                     gridManager.blockTiles(mouseGridPosition, buildingData.size);
                     buildMenuManager.inventoryManager.RemoveBuildCost(buildingData.Costs);
                     buildMenuManager.UpdateSlotCost();

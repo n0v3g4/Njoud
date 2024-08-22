@@ -89,10 +89,16 @@ public class Entity : MonoBehaviour
     }
 
     //called if hp gets below 0
-    public virtual void Die()
+    public void Die()
     {
         //delete
+        deathSpesifics();
         if (animationScript == null) Destroy(gameObject);
         else StartCoroutine(animationScript.Die());
+    }
+    //override on spesific entities
+    public virtual void deathSpesifics()
+    {
+
     }
 }

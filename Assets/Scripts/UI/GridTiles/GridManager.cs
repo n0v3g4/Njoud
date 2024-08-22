@@ -48,6 +48,21 @@ public class GridManager : MonoBehaviour
             }
         }
     }
+    public void clearTiles(Vector3 centerPosition, Vector3 size)
+    {
+        centerPosition -= (size / 2) * cellWidth;
+        Vector3Int offset = new(0, 0, 0);
+        Vector3Int tilePos = tilemap.WorldToCell(centerPosition);
+        for (int x = 0; x < size.x; x++)
+        {
+            offset.x = x;
+            for (int y = 0; y < size.y; y++)
+            {
+                offset.y = y;
+                tilemap.SetTile(tilePos + offset, null);
+            }
+        }
+    }
     public bool IsFree(Vector3 centerPosition, Vector3 size)
     {
         centerPosition -= (size / 2) * cellWidth;

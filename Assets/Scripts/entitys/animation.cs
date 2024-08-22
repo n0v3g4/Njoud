@@ -39,9 +39,10 @@ public class animation : MonoBehaviour
     public IEnumerator Die()
     {
         animator.SetTrigger("die");
-        //freeze rb
-        rb.bodyType = RigidbodyType2D.Static;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //disable movement and colissions
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        foreach (Collider2D col in rb.GetComponents<Collider2D>()) Destroy(col);
+
         entity.barsHolder.SetActive(false);
         //in case the death animation fails to destroy the gameObject
         yield return new WaitForSeconds(1);
