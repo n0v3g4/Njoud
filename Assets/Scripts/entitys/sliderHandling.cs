@@ -24,7 +24,7 @@ public class sliderHandling : MonoBehaviour
     {
         slider.value = Mathf.Max(value, 0)/valueMax;
         changeAlphas(1, 1);
-        StartCoroutine(fadeDelay());
+        if (fading) StartCoroutine(fadeDelay());
     }
     private void FixedUpdate()
     {
