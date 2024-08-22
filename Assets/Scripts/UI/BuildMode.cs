@@ -11,15 +11,23 @@ public class BuildMode : MonoBehaviour
     [SerializeField] private GameObject ghostBuilding;
     private Vector3 mouseGridPosition;
 
+    private Color redTrans  = new Color(1, .5f, .5f, .6f);
+    private Color blueTrans = new Color(.5f, .7f, 1, .6f);
+
     public void Update()
     {
         if (isBuilding)
         {
             mouseGridPosition = gridManager.CenterGridPosition(buildingData.size);
             ghostBuilding.transform.position = mouseGridPosition;
-            if (Input.GetMouseButtonDown(0))
+            if (!gridManager.IsFree(mouseGridPosition, buildingData.size))
             {
-                if(gridManager.IsFree(mouseGridPosition, buildingData.size))
+                spriteRenderer.color = redTrans;
+            }
+            else
+            {
+                spriteRenderer.color = blueTrans;
+                if (Input.GetMouseButtonDown(0))
                 {
                     GameObject building = Instantiate(buildingData.buildingPrefab, ghostBuilding.transform.position, Quaternion.identity);
                     building.transform.localScale = ghostBuilding.transform.localScale;
@@ -31,6 +39,7 @@ public class BuildMode : MonoBehaviour
                     stopBuilding();
                 }
             }
+
             if (Input.GetMouseButtonDown(1)) stopBuilding();
         }
     }
