@@ -71,9 +71,9 @@ public class InventoryManager : MonoBehaviour
         return count;
     }
 
-    public void RemoveBuildCost(BuildingCost[] buildCosts)
+    public void RemoveResourceCost(ResourceCosts[] resourceCosts)
     {
-        for (int i = 0; i < buildCosts.Length; i++) { RemoveItem(buildCosts[i].item, buildCosts[i].cost); }
+        for (int i = 0; i < resourceCosts.Length; i++) { RemoveItem(resourceCosts[i].item, resourceCosts[i].cost); }
     }
 
     public void RemoveItem(itemData item, int count)

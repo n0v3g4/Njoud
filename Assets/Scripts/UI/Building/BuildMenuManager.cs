@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,10 +15,10 @@ public class BuildMenuManager : MonoBehaviour
     {
         for(int i = 0; i < buildingDatas.Length; i++)
         {
-            GameObject newItemGo = Instantiate(buildingDataPrefab);
-            newItemGo.transform.SetParent(buildingContainer);
-            newItemGo.GetComponent<BuildSlot>().InitialiseBuildSlot(buildingDatas[i], this);
-            buildSlots.Add(newItemGo.GetComponent<BuildSlot>());
+            GameObject buildSlot = Instantiate(buildingDataPrefab);
+            buildSlot.transform.SetParent(buildingContainer);
+            buildSlot.GetComponent<BuildSlot>().InitialiseBuildSlot(buildingDatas[i], this);
+            buildSlots.Add(buildSlot.GetComponent<BuildSlot>());
         }
     }
 

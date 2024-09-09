@@ -5,9 +5,11 @@ public class MenuManager : MonoBehaviour
 {
     public Transform inventoryHolder;
     public Transform buildMenuHolder;
+    public Transform craftMenuHolder;
     [HideInInspector] public bool lockMenu = false;
 
     [SerializeField] private BuildMenuManager buildMenuManager;
+    [SerializeField] private CraftMenu craftMenu;
 
     public Dictionary<MenuState, Transform> stateTransforms = new Dictionary<MenuState, Transform>();
     private MenuState currentState = MenuState.None;
@@ -17,6 +19,7 @@ public class MenuManager : MonoBehaviour
         stateTransforms[MenuState.None] = null;
         stateTransforms[MenuState.Inventory] = inventoryHolder;
         stateTransforms[MenuState.BuildMenu] = buildMenuHolder;
+        stateTransforms[MenuState.CraftMenu] = craftMenuHolder;
     }
 
     void Update()
@@ -25,6 +28,7 @@ public class MenuManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q)) ChangeMenuState(MenuState.BuildMenu);
             if (Input.GetKeyDown(KeyCode.E)) ChangeMenuState(MenuState.Inventory);
+            if (Input.GetKeyDown(KeyCode.F)) ChangeMenuState(MenuState.CraftMenu);
         }
     }
 
@@ -42,6 +46,7 @@ public class MenuManager : MonoBehaviour
 
         //updates when spesific states are targettet
         if (targetState == MenuState.BuildMenu) buildMenuManager.UpdateSlotCosts();
+        if (targetState == MenuState.CraftMenu) craftMenu.UpdateSlotCosts();
     }
 
     private void toggleMenu(Transform menu)
@@ -56,5 +61,6 @@ public enum MenuState
 {
     None,
     BuildMenu,
-    Inventory
+    Inventory,
+    CraftMenu
 }

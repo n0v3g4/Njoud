@@ -34,7 +34,7 @@ public class BuildMode : MonoBehaviour
                     building.GetComponent<Entity>().entityStats["team"] = buildingTeam;
                     building.GetComponent<Building>().Setup(gridManager, mouseGridPosition, buildSlot.buildingData.size);
                     gridManager.blockTiles(mouseGridPosition, buildSlot.buildingData.size);
-                    buildMenuManager.inventoryManager.RemoveBuildCost(buildSlot.buildingData.Costs);
+                    buildMenuManager.inventoryManager.RemoveResourceCost(buildSlot.buildingData.Costs);
                     buildMenuManager.UpdateSlotCost(buildSlot);
                     if(!Input.GetKey(KeyCode.LeftShift) || !buildSlot.costMet) stopBuilding();
                 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfcad034a91ec8448b1579b7776846a, type: 3}
+  m_Name: CutStoneR
+  m_EditorClassIdentifier: 
+  Costs:
+  - cost: 4
+    item: {fileID: 11400000, guid: a1335862048792944840c028bbe25e81, type: 2}
+  description: Perfectly cut stone
+  resultCount: 2
+  resultData: {fileID: 11400000, guid: dc3fb63fb86265d4daa6ef2fb708bddc, type: 2}

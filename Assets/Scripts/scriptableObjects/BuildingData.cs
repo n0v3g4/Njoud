@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable object/Building")]
 
 public class BuildingData : ScriptableObject
 {
-    public BuildingCost[] Costs;
+    public ResourceCosts[] Costs;
     public string description;
     public Vector3 size; //width and hight in grid
 
@@ -14,7 +12,7 @@ public class BuildingData : ScriptableObject
 }
 
 [System.Serializable]
-public struct BuildingCost
+public struct ResourceCosts
 {
     public int cost;
     public itemData item;
