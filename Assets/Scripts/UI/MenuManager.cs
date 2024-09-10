@@ -24,16 +24,16 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.inputString != null && !lockMenu)
+        if (Input.inputString != null)
         {
             if (Input.GetKeyDown(KeyCode.Q)) ChangeMenuState(MenuState.BuildMenu);
             if (Input.GetKeyDown(KeyCode.E)) ChangeMenuState(MenuState.Inventory);
-            if (Input.GetKeyDown(KeyCode.F)) ChangeMenuState(MenuState.CraftMenu);
         }
     }
 
     public void ChangeMenuState(MenuState targetState)
     {
+        if (lockMenu) return;
         if (currentState == targetState)
         {
             toggleMenu(stateTransforms[targetState]);

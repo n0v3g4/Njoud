@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsK.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsV.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsK.Array.data[0]
@@ -49,6 +49,10 @@ PrefabInstance:
       value: animation
       objectReference: {fileID: 0}
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsK.Array.data[4]
+      value: interactionRange
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsV.Array.data[1]
       value: 100
       objectReference: {fileID: 0}
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: entityStatsV.Array.data[3]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966139944131732014, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      propertyPath: entityStatsV.Array.data[4]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4534368145940888006, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       propertyPath: m_RootOrder
@@ -146,6 +154,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4833381247381134525, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
       insertIndex: -1
       addedObject: {fileID: 824320035720812926}
+    - targetCorrespondingSourceObject: {fileID: 4833381247381134525, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6736191502563089010}
   m_SourcePrefab: {fileID: 100100000, guid: 906bff53c4790b0458745aefa0dba899, type: 3}
 --- !u!1 &364782527509548778 stripped
 GameObject:
@@ -208,6 +219,7 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 931170882218869923, guid: 0914d868a8b090e40bbd35a9a476e116, type: 3}
   barsHolder: {fileID: 364782527509548778}
   inventoryManager: {fileID: 0}
+  menuManager: {fileID: 0}
 --- !u!114 &824320035720812926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,3 +233,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 0}
+--- !u!114 &6736191502563089010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922525728013576275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c5ea05f7570fb439e185091da42eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7993341049489470895}
