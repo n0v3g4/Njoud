@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71c703379639a44b8146597a218f82a, type: 3}
+  m_Name: ironBar
+  m_EditorClassIdentifier: 
+  pickupTeam: 0
+  maxStack: 64
+  type: 2
+  actionType: 0
+  image: {fileID: 1738288551, guid: 58375e12d08f7024e86dc4a09367d594, type: 3}
