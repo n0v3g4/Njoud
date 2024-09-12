@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class CraftMenu : MonoBehaviour
 {
@@ -52,12 +51,12 @@ public class CraftMenu : MonoBehaviour
         if (recipeSlot.costMet)
         {
             inventoryManager.RemoveResourceCost(recipeSlot.recipeData.Costs);
-            UpdateSlotCost(recipeSlot);
             int droppedItems = inventoryManager.AddItem(recipeSlot.recipeData.resultData, recipeSlot.recipeData.resultCount);
             if (droppedItems > 0) {
                 GameObject itemDrop = Instantiate(itemDropPrefab, playerPosition.position, Quaternion.identity);
                 itemDrop.GetComponent<ItemDrop>().InitialiseItem(recipeSlot.recipeData.resultData, recipeSlot.recipeData.resultCount, pickupDelay);
             }
+            UpdateSlotCosts();
         }
     }
 }

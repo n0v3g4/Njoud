@@ -14,13 +14,15 @@ public class itemData : ScriptableObject
 public enum ItemType
 {
     None,
+    Resource,
     Tool,
-    Resource
+    Weapon
 }
 
 public enum ActionType
 {
     None,
     Chop,
-    Mine
+    Mine,
+    Cut
 }
