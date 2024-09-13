@@ -16,3 +16,7 @@ In addition private scripts should be [SerializField]s if their value is assigne
    setScale(float _scale){
     scale = _scale
    }
+# Art
+1. all art shoulsd have filter mode: "point (no filter)" and compression: "None" selected, to keep the edges crisp
+2. all art should have 24 pixels per unit selected
+3. to keep the pixel size consistent 16 art pixels fill a in-game tile
