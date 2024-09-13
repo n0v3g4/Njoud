@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupTeam: 0
   maxStack: 64
-  type: 2
+  type: 1
   actionType: 0
   image: {fileID: -1141360875, guid: c48c01b20a372954199bddf2292815f0, type: 3}

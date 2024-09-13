@@ -54,6 +54,9 @@ TagManager:
   - name: informationBars
     uniqueID: 3557884565
     locked: 0
+  - name: Weapon
+    uniqueID: 1554092755
+    locked: 0
   - name: Popups
     uniqueID: 1685389333
     locked: 0
