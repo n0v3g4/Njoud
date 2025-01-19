@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         if (direction == null) return;
-        rb.velocity = direction * bulletSpeed;
+        rb.linearVelocity = direction * bulletSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
