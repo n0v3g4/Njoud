@@ -17,16 +17,16 @@ public class animation : MonoBehaviour
     {
         if (entity.entityStats["animation"] == 0)
         {
-            if (Mathf.Abs(rb.velocity.x) < Mathf.Abs(rb.velocity.y))
+            if (Mathf.Abs(rb.linearVelocity.x) < Mathf.Abs(rb.linearVelocity.y))
             {
                 //if only y-movement play those animations
-                if (rb.velocity.y > 0) animator.SetTrigger("moveUp");
+                if (rb.linearVelocity.y > 0) animator.SetTrigger("moveUp");
                 else animator.SetTrigger("moveDown");
             }
-            else if (rb.velocity.x != 0)
+            else if (rb.linearVelocity.x != 0)
             {
                 //if x movement play it
-                if (rb.velocity.x > 0) animator.SetTrigger("moveRight");
+                if (rb.linearVelocity.x > 0) animator.SetTrigger("moveRight");
                 else animator.SetTrigger("moveLeft");
             }
             else
